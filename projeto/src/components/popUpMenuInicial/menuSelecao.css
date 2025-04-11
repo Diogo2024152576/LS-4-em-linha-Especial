@@ -1,0 +1,48 @@
+
+
+.selecaoJogada {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* centralizar o pop up */
+    background: rgb(22, 118, 207);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 450px;
+    min-height: auto;
+    width: auto;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6)
+}
+
+.selecaoJogada h1 {
+    margin-top: 40px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.selecaoJogada .selecao {
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.selecaoJogada .selecao button {
+    background-color: #fff;
+    width:  180px;
+    height: 80px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+}
