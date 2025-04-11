@@ -1,0 +1,12 @@
+solicitar nome dos players
+decidir de forma aleatoria qual jogador começa
+apresentar tabuleiro de jogo 
+identificacao clara do jogador que deve efetuar a jogada
+identificacao clara da peca do jogador que vai jogar 
+apresentacao do tempo disponivel, contagem decrescente 10 - 0 s 
+caso o jogador nao jogue passaa a vez
+A peca deslizar ate a coluna selecionada
+gerar de forma aleatoria 5 bonus
+2 niveis de jogo 1 vs 1 e 1 vs computador
+identificar fim de jogo
+permitir jogar novamente
