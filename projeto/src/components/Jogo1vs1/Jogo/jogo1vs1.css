@@ -1,0 +1,72 @@
+.jogo {
+    position: relative;
+    background-color: rgb(196, 193, 189);
+    width: 70%;
+    height: 100vh; 
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 30px; 
+}
+
+.jogo-main .sair {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: row;
+    background-color: aliceblue;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    margin: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    gap: 8px; 
+    cursor: pointer;
+    transition: border 0.2s ease;
+}
+
+.jogo-main .sair:hover {
+    border: 2px solid #cc2525;
+}
+
+.jogo-main #sair {
+    border: none;
+    background: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jogo-main #sair img {
+    width: 20px;
+    height: 20px;
+}
+
+.jogo-main .jogo .tabela-jogo {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: orange; 
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 60%;
+    min-height: 100px;
+    padding: 20px; 
+    color: black; 
+    
+    line-height: 1.5; 
+}
+
+.jogo-main .jogo .tabela-jogo p {
+    margin-bottom: 20px;
+}

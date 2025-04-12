@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './assets/styles/App.css'
 import MenuSelecaoJogo from './components/popUpMenuInicial/menuSelecao'
-import JogoPlvsPl from './components/Jogo1vs1/main1vs1'
+import IntroduzirPlayers from './components/Jogo1vs1/InsercaoNomes/InserirNomesPls'
 import JogoPlvsComp from './components/Jogo1vsComp/main1vsComp'
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       />
     )}
     {started === 1 && (
-      <JogoPlvsPl voltarAoMenu={() => setStarted(0)}/>
+      <IntroduzirPlayers voltarAoMenu={() => setStarted(0)}/>
     )}
     {started === 2 && (
       <JogoPlvsComp voltarAoMenu={() => setStarted(0)}/>
