@@ -70,3 +70,11 @@
 .jogo-main .jogo .tabela-jogo p {
     margin-bottom: 20px;
 }
+
+.jogo-main .jogo .ct-tabela-jogo {
+    width: 80%;
+    height: 80%;
+    background-color: transparent;
+    margin: 0 auto; 
+    border: 2px solid black;
+}

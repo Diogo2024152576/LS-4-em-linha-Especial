@@ -1,0 +1,11 @@
+.tabela {
+    --size: 100px;
+    display: grid;
+    grid-template-columns: repeat(7, var(--size));
+    grid-template-rows: repeat(6, var(--size));
+    position: relative;
+}
+
+.tabela div {
+    background: url(../../../assets/images/quadrado.svg);
+}
