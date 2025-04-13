@@ -45,18 +45,7 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
     });
 
     return (
-        <>
-            {/* Moedas que já caíram */}
-            {dropped.map((drop, index) => (
-                <div
-                    key={index}
-                    className={`coin p${drop.jogador} column-${drop.y} row-${drop.x}`}
-                />
-            ))}
-    
-            {/* Moeda ativa */}
-            <div className={`active p${turn} column-${column || '-'} row-${row === undefined ? '-' : row}`} />
-        </>
+        <div className={`active p${turn} column-${column || '-'} row-${row === undefined ? '-' : row}`} />
     );
     
     
