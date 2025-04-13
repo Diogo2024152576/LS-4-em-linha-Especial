@@ -10,12 +10,13 @@ export default function DropZone({ hoveredColumn }) {
     return (
         <div className='drop-zone'>
             {dropped.map((m, i) => 
-                <div 
-                    key={i} 
-                    className={`p${m.jogador}`} 
-                    style={{ transform: `translate(${m.y * tamanho}px, ${m.x * tamanho + 150}px)` }}
-                />
-            )}
+        <div 
+            key={i} 
+            className={`p${m.jogador}`} 
+            style={{ transform: `translate(${m.y * tamanho}px, ${m.x * tamanho + 120}px)` }}
+        />
+    )}
+
             <Moeda 
                 turn={turn} 
                 setTurn={setTurn} 

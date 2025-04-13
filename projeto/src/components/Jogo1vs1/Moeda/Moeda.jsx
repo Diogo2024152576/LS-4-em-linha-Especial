@@ -1,6 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 
 export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColumn }) {
     const [column, setColumn] = useState(0);
@@ -28,11 +26,11 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
 
             setRow(len);
             setTimeout(() => {
-                setDropped([...dropped, { x: len, y: column || 0, player: turn }]);
+                setDropped([...dropped, { x: len, y: column || 0, jogador: turn }]);
                 setTurn(turn === 1 ? 2 : 1);
             }, 500);
         }
-    }
+    };
 
     useEffect(() => {
         setColumn(0);
@@ -47,6 +45,19 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
     });
 
     return (
-        <div className={`active p${turn} column-${column || '-'} row-${row === undefined ? '-' : row}`} />
-    )
+        <>
+            {/* Moedas que já caíram */}
+            {dropped.map((drop, index) => (
+                <div
+                    key={index}
+                    className={`coin p${drop.jogador} column-${drop.y} row-${drop.x}`}
+                />
+            ))}
+    
+            {/* Moeda ativa */}
+            <div className={`active p${turn} column-${column || '-'} row-${row === undefined ? '-' : row}`} />
+        </>
+    );
+    
+    
 }
