@@ -1,6 +1,7 @@
 import './jogo1vs1.css'
 import sairImage from '../../../assets/images/sair.png';
 import Tabela from '../Tabela/tabela'
+import DropZone from '../../DropZone/DropZone';
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
     return (
@@ -11,6 +12,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                     <p>Jogador : {player1} vs Jogador :  {player2}</p>
                 </div>
                 <div className='ct-tabela-jogo'>
+                    {/*<DropZone />*/}
                     <Tabela />
                 </div>
             </div>
