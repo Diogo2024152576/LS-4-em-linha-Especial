@@ -1,3 +1,8 @@
+:root{
+    --tamanho : 100px;
+    --colunas : 7;
+    --linhas : 6;
+}
 
 * {
     box-sizing: border-box;
