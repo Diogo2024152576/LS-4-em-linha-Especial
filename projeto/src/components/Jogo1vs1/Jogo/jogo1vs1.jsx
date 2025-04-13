@@ -1,7 +1,7 @@
 import './jogo1vs1.css'
 import sairImage from '../../../assets/images/sair.png';
 import Tabela from '../Tabela/tabela'
-import DropZone from '../../DropZone/DropZone';
+import DropZone from '../DropZone/DropZone';
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
     return (

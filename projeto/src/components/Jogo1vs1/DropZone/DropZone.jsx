@@ -1,6 +1,6 @@
-import { tamanho } from '../../constants/constants';
+import { tamanho } from '../../../constants/constants';
 import './DropZone.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Moeda from '../Moeda/Moeda';
 
 export default function DropZone({ hoveredColumn }) {

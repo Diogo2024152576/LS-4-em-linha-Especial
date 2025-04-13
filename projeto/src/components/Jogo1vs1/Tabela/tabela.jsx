@@ -1,6 +1,6 @@
 import './tabela.css'
 import { linhas, colunas } from '../../../constants/constants';
-import Dropzone from '../../DropZone/DropZone';
+import Dropzone from '../DropZone/DropZone';
 import { useState } from 'react';
 
 export default function Tabela() {
