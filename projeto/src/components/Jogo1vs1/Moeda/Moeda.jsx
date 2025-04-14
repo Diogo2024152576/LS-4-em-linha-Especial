@@ -17,7 +17,6 @@ export default function Moeda({
     const [row, setRow] = useState();
     const [dropping, setDropping] = useState(false);
 
-
     useEffect(() => {
         if (hoveredColumn !== undefined && hoveredColumn !== column) {
             setColumn(hoveredColumn);
@@ -26,15 +25,15 @@ export default function Moeda({
 
     const dropMoeda = () => {
         if (winner !== 0 || jogadaBloqueada) return;
-    
+
         if (dropped.find(drop => drop.x === 0 && drop.y === (column || 0))) return;
-    
+
         const len = 5 - dropped.filter(drop => drop.y === (column || 0)).length;
-    
+
         setJogadaBloqueada(true);
         setRow(len);
-        setDropping(true); // agora é dropping!
-    
+        setDropping(true);
+
         setTimeout(() => {
             setDropped([...dropped, { x: len, y: column || 0, jogador: turn }]);
             setTurn(turn === 1 ? 2 : 1);
@@ -42,7 +41,6 @@ export default function Moeda({
             setJogadaBloqueada(false);
         }, 500);
     };
-    
 
     const handleKeyDown = (event) => {
         if (winner !== 0 || jogadaBloqueada) return;
@@ -64,8 +62,8 @@ export default function Moeda({
     };
 
     useEffect(() => {
-        setColumn(0);
-        setRow();
+        // Agora, NÃO resetamos column ao trocar de turno
+        setRow(); // Isso ainda pode ser resetado
     }, [turn]);
 
     useEffect(() => {

@@ -13,6 +13,11 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
     const [jogadaBloqueada, setJogadaBloqueada] = useState(false);
     const intervalRef = useRef(null);
 
+    const trocarTurno = () => {
+        setTurno(turno === 1 ? 2 : 1);
+        setTempoRestante(temporizador);
+    };
+
     useEffect(() => {
         if (winner !== 0) return;
 
@@ -31,11 +36,6 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
 
         return () => clearInterval(intervalRef.current);
     }, [turno, winner]);
-
-    const trocarTurno = () => {
-        setTurno(prev => prev === 1 ? 2 : 1);
-        setTempoRestante(temporizador);
-    };
 
     return (
         <div className='jogo-main'>
@@ -58,6 +58,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                         jogadaBloqueada={jogadaBloqueada}
                         setJogadaBloqueada={setJogadaBloqueada}
                         setTempoRestante={setTempoRestante}
+                        tempoRestante={tempoRestante}
                     />
                 </div>
             </div>
