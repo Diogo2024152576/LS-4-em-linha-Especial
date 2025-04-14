@@ -32,6 +32,7 @@ export default function DropZone({ hoveredColumn, winner, setWinner}) {
                 dropped={dropped} 
                 setDropped={setDropped} 
                 hoveredColumn={hoveredColumn} 
+                winner={winner}
             />
         </div>
     );

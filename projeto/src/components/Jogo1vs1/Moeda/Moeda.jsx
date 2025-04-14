@@ -11,6 +11,8 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
     }, [hoveredColumn]);
 
     const dropMoeda = () => {
+        if (winner !== 0) return //bloqueia proxima jogada se ja houver um vencedor
+
         if (dropped.find(drop => drop.x === 0 && drop.y === (column || 0))) return;
 
         const len = 5 - dropped.filter(drop => drop.y === (column || 0)).length;
@@ -23,6 +25,7 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
     };
 
     const handleKeyDown = (event) => {
+        if (winner !== 0) return //bloqueia interações com o teclado
         if ((event.key === 'ArrowLeft' || event.key === 'A' || event.key === 'a') && column > 0) {
             setColumn(column - 1);
         } else if (event.key === 'ArrowRight' || event.key === 'D' || event.key === 'd') {
@@ -37,6 +40,7 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
     };
 
     const handleDoubleClick = (event) => {
+        if (winner !== 0) return //bloqueia o duplo cique se ja existir um vencedor
         if (event.button === 0) { // botão esquerdo do rato
             dropMoeda();
         }
@@ -58,6 +62,10 @@ export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColum
     });
 
     return (
-        <div className={`active p${turn} column-${column || '-'} row-${row === undefined ? '-' : row}`} />
+        <>
+            {(winner === 0 && dropped.length < 42) && (
+                <div className={`active p${turn} column-${column || '-'} row-${row === undefined ? '-' : row}`} />
+            )}
+        </>
     );
 }
