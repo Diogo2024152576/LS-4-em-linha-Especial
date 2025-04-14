@@ -7,15 +7,15 @@ const VerificarVitoria = (jogador, dropped, linhas, colunas) => {
         if (jogadasJogadores.find(m => x === m.x + 1 && y === m.y) &&
             jogadasJogadores.find(m => x === m.x + 2 && y === m.y) &&
             jogadasJogadores.find(m => x === m.x + 3 && y === m.y)) return true
-
+        //verificao vertical
         if (jogadasJogadores.find(m => x === m.x && y === m.y + 1) &&
-            jogadasJogadores.find(m => x === m.x && y === x.y + 2) &&
-            jogadasJogadores.find(m => x === m.x && y === x.y + 3)) return true
-            
+            jogadasJogadores.find(m => x === m.x && y === m.y + 2) &&
+            jogadasJogadores.find(m => x === m.x && y === m.y + 3)) return true
+        //verificao diagonal descendente   
         if (jogadasJogadores.find(m => x === m.x + 1 && y === m.y + 1) &&
             jogadasJogadores.find(m => x === m.x + 2 && y === m.y + 2) &&
             jogadasJogadores.find(m => x === m.x + 3 && y === m.y + 3)) return true
-            
+        //verificao diagonal ascendente    
         if (jogadasJogadores.find(m => x === m.x + 1 && y === m.y - 1) &&
             jogadasJogadores.find(m => x === m.x + 2 && y === m.y - 2) &&
             jogadasJogadores.find(m => x === m.x + 3 && y === m.y - 3)) return true   

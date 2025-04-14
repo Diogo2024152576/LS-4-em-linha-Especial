@@ -76,7 +76,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: none; /* Por defeito, ocultamos o popup */
+    display: none; /*ocultar enquanto nao existir vencedor/empate */
 
     background-color: #cc2525;
     width: 400px;
@@ -85,7 +85,7 @@
     z-index: 1000;
 }
 
-/* Quando o winner não for 0, mostramos o popup */
+/* pop up visivel quando winner != 0 */
 .jogo-main .popup-Vencedor.show {
     display: flex;
     align-items: center;
