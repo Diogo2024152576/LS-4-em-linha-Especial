@@ -12,7 +12,14 @@
 .drop-zone .p1 {background-color: var(--p1);}
 .drop-zone .p2 {background-color: var(--p2);}
 
-.drop-zone .active {transition: all ease-in-out 500ms;}
+.drop-zone .active {
+    transition: none;
+}
+
+.drop-zone .active.dropping {
+    transition: transform 0.3s ease-in;
+}
+
 
 .drop-zone .active.column-0 {margin-left: 0px;}
 .drop-zone .active.column-1 {margin-left: 100px;}
@@ -29,7 +36,7 @@
 .drop-zone .active.row-4 {transform: translateY(520px);}
 .drop-zone .active.row-5 {transform: translateY(620px);}
 
-.drop-zone .active.column--.row-- {transition: none;}
+/*.drop-zone .active.column--.row-- {transition: none;}  */
 
 .drop-zone p{
     display: grid;
