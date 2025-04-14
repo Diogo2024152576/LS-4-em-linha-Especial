@@ -1,0 +1,5 @@
+objetivos 15-04
+
+- guardar ultima pos ao inserir bola
+- gerir vencedores (atingir 4 bolas da mesma cor vertical horizontal diagonal)
+- trabalhar no header (icon jogadores, tempo de jogo, pontuações, border de acordo com o termino do tempo)
