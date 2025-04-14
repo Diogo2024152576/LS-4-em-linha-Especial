@@ -40,30 +40,8 @@
     height: 20px;
 }
 
-.jogo-main .jogo .tabela-jogo {
-    position: relative;
-    margin: auto auto calc(var(--tamanho)*0.2) auto;
-    
-    background-color: orange; 
 
-    border-radius: 0px 0px 30px 30px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-    width: 50%;
-    min-height: 80px;
-    padding: 10px; 
-    color: black; 
-    
-    line-height: 1.5; 
-}
 
-.jogo-main .jogo .tabela-jogo p {
-    margin-bottom: auto;
-}
 
 .jogo-main .jogo .ct-tabela-jogo {
     width: 80%;
