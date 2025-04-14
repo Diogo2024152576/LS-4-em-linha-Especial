@@ -1,51 +1,54 @@
-/* WinnerPopup.css */
-
-.winner-popup {
+.popup-winner {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    background: rgba(0, 0, 0, 0.6);  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
-    border-radius: 10px; 
-    max-width: 400px;      
-    width: auto;           
-    box-sizing: border-box; 
 }
 
-.winner-message {
+.popup-winner .inner-box {
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    min-width: 300px;
+    max-width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.popup-winner .texto span {
     font-size: 24px;
-    color: white;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 20px;
 }
 
-.ct-opcoes-pos-jogo {
-    margin-top: 20px;
-    text-align: center;
+.popup-winner .botoes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
-.ct-opcoes-pos-jogo button {
-    margin: 10px;
-    padding: 10px 20px;
+.popup-winner .botoes button {
+    flex: 1;
+    min-width: 140px;
+    padding: 12px 0;
     font-size: 16px;
-    background-color: #1f63e0;
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.ct-opcoes-pos-jogo button:hover {
-    background-color: #45a049;
-}
-
-.ct-opcoes-pos-jogo button:focus {
-    outline: none;
+.popup-winner .botoes button:hover {
+    transform: scale(1.1);
 }
