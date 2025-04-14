@@ -70,3 +70,25 @@
     background-color: transparent;
     margin: 0 auto; 
 }
+
+.jogo-main .popup-Vencedor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Por defeito, ocultamos o popup */
+
+    background-color: #cc2525;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    z-index: 1000;
+}
+
+/* Quando o winner não for 0, mostramos o popup */
+.jogo-main .popup-Vencedor.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

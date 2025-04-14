@@ -11,11 +11,9 @@ export default function DropZone({ hoveredColumn, winner, setWinner}) {
     
     useEffect(() => {
         const vencedorJogo = encontrarVencedor(dropped, linhas, colunas)
-        console.log("O jogador : " + vencedorJogo + " venceu")
         setWinner(vencedorJogo)
     }, [dropped, setWinner]) 
     
-
     return (
         <div className='drop-zone'>
             {dropped.map((m, i) => 

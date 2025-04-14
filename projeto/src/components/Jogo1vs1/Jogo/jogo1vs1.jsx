@@ -21,6 +21,15 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                     {/*<DropZone />*/}
                     <Tabela winner={winner} setWinner={setWinner}/>
                 </div>
+
+            </div>
+            <div className='sair' onClick={voltarAoMenu}>
+                <button id="sair">
+                    <img src={sairImage} alt="Voltar ao menu"/>
+                </button>
+                <p>Sair do Jogo</p>
+            </div>
+            <div className={`popup-Vencedor ${winner !== 0 ? 'show' : ''}`}>
                 {winner !== 0 && (
                     <PopUpVencedor 
                         winner={winner}
@@ -28,12 +37,6 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                         player2={player2}
                     />
                 )}
-            </div>
-            <div className='sair' onClick={voltarAoMenu}>
-                <button id="sair">
-                    <img src={sairImage} alt="Voltar ao menu"/>
-                </button>
-                <p>Sair do Jogo</p>
             </div>
         </div>
     )
