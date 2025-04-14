@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColumn }) {
+export default function Moeda({ turn, setTurn, dropped, setDropped, hoveredColumn, winner}) {
     const [column, setColumn] = useState(0);
     const [row, setRow] = useState();
 

@@ -6,7 +6,10 @@ import { useState } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor'
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
-    const [winner, setWinner] = useState(0); // 0 - nenhum vencdor 1 - pl1  2 -pl2
+    const [winner, setWinner] = useState(0); 
+    // 0 - nenhum vencdor 
+    // 1 - pl1
+    // 2 -pl2
     return (
         <div className='jogo-main'>
             <div className='jogo'>

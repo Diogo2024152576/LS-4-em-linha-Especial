@@ -5,7 +5,7 @@ import Moeda from '../Moeda/Moeda';
 import { encontrarVencedor } from '../Vencedor/encontrarVencedor'
 
 export default function DropZone({ hoveredColumn, winner, setWinner}) {
-    const [turn, setTurn] = useState(2);
+    const [turn, setTurn] = useState(1); //jogador que inicia a jogar
     const [dropped, setDropped] = useState([]);
 
     
