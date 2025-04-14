@@ -1,0 +1,51 @@
+/* WinnerPopup.css */
+
+.winner-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background: rgba(0, 0, 0, 0.6);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px; 
+    max-width: 400px;      
+    width: auto;           
+    box-sizing: border-box; 
+}
+
+.winner-message {
+    font-size: 24px;
+    color: white;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ct-opcoes-pos-jogo {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ct-opcoes-pos-jogo button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1f63e0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ct-opcoes-pos-jogo button:hover {
+    background-color: #45a049;
+}
+
+.ct-opcoes-pos-jogo button:focus {
+    outline: none;
+}

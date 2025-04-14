@@ -3,6 +3,7 @@ import sairImage from '../../../assets/images/sair.png';
 import Tabela from '../Tabela/tabela'
 import DropZone from '../DropZone/DropZone';
 import { useState } from 'react';
+import PopUpVencedor from '../popUpVencedor/popUpVencedor'
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
     const [winner, setWinner] = useState(0); // 0 - nenhum vencdor 1 - pl1  2 -pl2
@@ -17,6 +18,13 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                     {/*<DropZone />*/}
                     <Tabela winner={winner} setWinner={setWinner}/>
                 </div>
+                {winner !== 0 && (
+                    <PopUpVencedor 
+                        winner={winner}
+                        player1={player1}
+                        player2={player2}
+                    />
+                )}
             </div>
             <div className='sair' onClick={voltarAoMenu}>
                 <button id="sair">
