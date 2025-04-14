@@ -1,11 +1,20 @@
-import { tamanho } from '../../../constants/constants';
+import { colunas, linhas, tamanho } from '../../../constants/constants';
 import './DropZone.css';
 import { useEffect, useState } from 'react';
 import Moeda from '../Moeda/Moeda';
+import { encontrarVencedor } from '../Vencedor/encontrarVencedor'
 
-export default function DropZone({ hoveredColumn }) {
+export default function DropZone({ hoveredColumn, winner, setWinner}) {
     const [turn, setTurn] = useState(2);
     const [dropped, setDropped] = useState([]);
+
+    
+    useEffect(() => {
+        const vencedorJogo = encontrarVencedor(dropped, linhas, colunas)
+        console.log("O jogador : " + vencedorJogo + " venceu")
+        setWinner(vencedorJogo)
+    }, [dropped, setWinner]) 
+    
 
     return (
         <div className='drop-zone'>

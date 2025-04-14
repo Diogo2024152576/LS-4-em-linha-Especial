@@ -3,8 +3,9 @@ import { linhas, colunas } from '../../../constants/constants';
 import Dropzone from '../DropZone/DropZone';
 import { useState } from 'react';
 
-export default function Tabela() {
+export default function Tabela({ winner, setWinner}) {
     const [hoveredColumn, setHoveredColumn] = useState(null);
+    
 
     const tabela = 
         new Array(linhas)
@@ -14,7 +15,11 @@ export default function Tabela() {
     return (
         <div className='container'>
             <div className='drop'>
-                <Dropzone hoveredColumn={hoveredColumn} />
+                <Dropzone 
+                    hoveredColumn={hoveredColumn} 
+                    winner={winner} 
+                    setWinner={setWinner}
+                />
             </div>
             <div className='tabela'> 
                 {tabela.map((linha, i) => 
