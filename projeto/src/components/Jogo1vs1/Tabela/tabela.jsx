@@ -1,15 +1,25 @@
 import './tabela.css';
 import { linhas, colunas } from '../../../constants/constants';
 import Dropzone from '../DropZone/DropZone';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function Tabela({ winner, setWinner, turno, setTurno, trocarTurno, jogadaBloqueada, setJogadaBloqueada, setTempoRestante }) {
-    const [hoveredColumn, setHoveredColumn] = useState(null);
+export default function Tabela({
+    winner,
+    setWinner,
+    turno,
+    setTurno,
+    trocarTurno,
+    jogadaBloqueada,
+    setJogadaBloqueada,
+    setTempoRestante
+}) {
+    const [hoveredColumn, setHoveredColumn] = useState(0);
 
     const tabela =
         new Array(linhas)
             .fill()
             .map(() => new Array(colunas).fill(''));
+
 
     return (
         <div className='container'>
@@ -32,7 +42,6 @@ export default function Tabela({ winner, setWinner, turno, setTurno, trocarTurno
                         <div
                             key={i + '-' + j}
                             onMouseEnter={() => setHoveredColumn(j)}
-                            onMouseLeave={() => setHoveredColumn(null)}
                         />
                     ))
                 )}
