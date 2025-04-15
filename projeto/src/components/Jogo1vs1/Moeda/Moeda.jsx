@@ -16,6 +16,7 @@ export default function Moeda({
     const [column, setColumn] = useState(0);
     const [row, setRow] = useState();
     const [dropping, setDropping] = useState(false);
+    const [moedaAtual, setMoedaAtual] = useState(null);
 
     useEffect(() => {
         if (hoveredColumn !== undefined && hoveredColumn !== column) {
@@ -24,6 +25,7 @@ export default function Moeda({
     }, [hoveredColumn]);
 
     const dropMoeda = () => {
+        setMoedaAtual(turn); // guarda quem é o jogador desta jogada
         if (winner !== 0 || jogadaBloqueada) return;
 
         if (dropped.find(drop => drop.x === 0 && drop.y === (column || 0))) return;
@@ -38,8 +40,15 @@ export default function Moeda({
             setDropped([...dropped, { x: len, y: column || 0, jogador: turn }]);
             setTurn(turn === 1 ? 2 : 1);
             setDropping(false);
+            setMoedaAtual(null);
             setJogadaBloqueada(false);
+        
+            // Delay extra só para limpar o "row" e permitir a nova moeda suspensa aparecer
+            setTimeout(() => {
+                setRow(undefined);
+            }, 0); // <- podes ajustar este valor se precisares
         }, 500);
+        
     };
 
     const handleKeyDown = (event) => {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './assets/styles/App.css'
 import MenuSelecaoJogo from './components/popUpMenuInicial/menuSelecao'
 import IntroduzirPlayers from './components/Jogo1vs1/InsercaoNomes/InserirNomesPls'
-import JogoPlvsComp from './components/Jogo1vsComp/main1vsComp'
+import JogoPlvsComp from './components/Jogo1vsComp/Jogo/main1vsComp'
 
 function App() {
 

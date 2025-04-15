@@ -2,9 +2,9 @@
     --tamanho : 100px;
     --colunas : 7;
     --linhas : 6;
-
     --p1 : rgb(255, 0, 0);
     --p2 : rgb(253, 214, 40);
+    --cor_fundo : #1e1e2f
 }
 
 * {

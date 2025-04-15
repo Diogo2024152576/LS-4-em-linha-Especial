@@ -5,18 +5,33 @@ import { useEffect, useRef, useState } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor';
 import Header from '../Header/Header';
 import { temporizador } from '../../../constants/constants';
+import IntroduzirPlayers  from '../InsercaoNomes/InserirNomesPls'
 
-export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
+export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2}) {
     const [winner, setWinner] = useState(0);
     const [turno, setTurno] = useState(1);
     const [tempoRestante, setTempoRestante] = useState(temporizador);
     const [jogadaBloqueada, setJogadaBloqueada] = useState(false);
     const intervalRef = useRef(null);
+    const [mostrarIntroducao, setMostrarIntroducao] = useState(false); //(se verdade direciona para a introducao de nomes de players)
+    const [pontos_pl1, setPontospl1] = useState(0); //pontuacoes dos pls
+    const [pontos_pl2, setPontospl2] = useState(0);
 
     const trocarTurno = () => {
         setTurno(turno === 1 ? 2 : 1);
         setTempoRestante(temporizador);
     };
+
+    const reporJogo = () => {
+        setWinner(0);
+        setPlayer1('')
+        setPlayer2('')
+        setMostrarIntroducao(true)
+    }
+
+    const jogarNovamente = () => {
+        setWinner(0)
+    }
 
     useEffect(() => {
         if (winner !== 0) return;
@@ -37,6 +52,18 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
         return () => clearInterval(intervalRef.current);
     }, [turno, winner]);
 
+    //arrow function de atb de pontuacoes aos pls (incrementar)
+    useEffect(() => {
+        if (winner === 1)
+            setPontospl1(prev => prev + 1)
+        else if (winner === 2)
+            setPontospl2(prev => prev + 1)
+    }, [winner])
+
+    if (mostrarIntroducao) {
+        return <IntroduzirPlayers voltarAoMenu={voltarAoMenu} />;
+    }
+
     return (
         <div className='jogo-main'>
             <div className='jogo'>
@@ -44,8 +71,8 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                     player1={player1}
                     player2={player2}
                     tempoRestante={tempoRestante}
-                    pontuacao1={0}
-                    pontuacao2={0}
+                    pontuacao1={pontos_pl1}
+                    pontuacao2={pontos_pl2}
                     turno={turno}
                 />
                 <div className='ct-tabela-jogo'>
@@ -74,6 +101,8 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                         winner={winner}
                         player1={player1}
                         player2={player2}
+                        reporJogo={reporJogo}
+                        jogarNovamente={jogarNovamente}
                     />
                 )}
             </div>
