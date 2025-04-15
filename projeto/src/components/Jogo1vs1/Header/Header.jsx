@@ -41,7 +41,7 @@ export default function Header({
                     </div>
                     <div className="info-jogador">
                         <p className="nome">{player1}</p>
-                        <p className="tempo">{turno === 1 ? tempoRestante != 10 ? `00:0${tempoRestante}` : `00:${tempoRestante}` : '--'}</p>
+                        <p className="tempo">{turno === 1 ? tempoRestante !== 10 ? `00:0${tempoRestante}` : `00:${tempoRestante}` : '--'}</p>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@ export default function Header({
                     </div>
                     <div className="info-jogador">
                         <p className="nome">{player2}</p>
-                        <p className="tempo">{turno === 2 ? tempoRestante != 10 ? `00:0${tempoRestante}` : `00:${tempoRestante}` : '--'}</p>
+                        <p className="tempo">{turno === 2 ? tempoRestante !== 10 ? `00:0${tempoRestante}` : `00:${tempoRestante}` : '--'}</p>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ export default function DropZone({
     setTurno,
     trocarTurno,
     jogadaBloqueada,
-    setJogadaBloqueada
+    setJogadaBloqueada,
 }) {
     const [dropped, setDropped] = useState([]);
 

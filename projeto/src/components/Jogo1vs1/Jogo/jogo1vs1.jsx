@@ -1,7 +1,7 @@
 import './jogo1vs1.css';
 import sairImage from '../../../assets/images/sair.png';
 import Tabela from '../Tabela/tabela';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor';
 import Header from '../Header/Header';
 import { temporizador } from '../../../constants/constants';
@@ -16,11 +16,12 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [mostrarIntroducao, setMostrarIntroducao] = useState(false); //(se verdade direciona para a introducao de nomes de players)
     const [pontos_pl1, setPontospl1] = useState(0); //pontuacoes dos pls
     const [pontos_pl2, setPontospl2] = useState(0);
+    
 
-    const trocarTurno = () => {
+    const trocarTurno = useCallback(() => {
         setTurno(turno === 1 ? 2 : 1);
         setTempoRestante(temporizador);
-    };
+    }, [turno]);
 
     const reporJogo = () => {
         setWinner(0);
@@ -48,9 +49,8 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                 return prev - 1;
             });
         }, 1000);
-
         return () => clearInterval(intervalRef.current);
-    }, [turno, winner]);
+    }, [turno, winner, trocarTurno]);
 
     //arrow function de atb de pontuacoes aos pls (incrementar)
     useEffect(() => {
