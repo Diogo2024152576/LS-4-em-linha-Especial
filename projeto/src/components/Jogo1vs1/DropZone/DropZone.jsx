@@ -35,3 +35,4 @@ export default function DropZone({ hoveredColumn, winner, setWinner}) {
         </div>
     );
 }
+//acess main
