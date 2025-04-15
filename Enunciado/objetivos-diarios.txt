@@ -15,4 +15,5 @@ objetivos 16-04
 objetivos ...
 Definir tamanho maximo de nome
 Quando faz o 4 em linha destacar a linha ganhadora (ou com uma borda a rodear ou com um * dentro das 4 moedas em questão)
-
+nivel pc a funcionar
+espaços especiais
