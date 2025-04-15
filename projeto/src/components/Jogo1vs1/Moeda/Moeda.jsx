@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { temporizador } from '../../../constants/constants';
+import React, { useEffect, useState, useCallback} from 'react';
 
 export default function Moeda({ 
     turn,
@@ -11,21 +10,19 @@ export default function Moeda({
     trocarTurno,
     jogadaBloqueada,
     setJogadaBloqueada,
-    setTempoRestante
+    setTempoRestante,
 }) {
     const [column, setColumn] = useState(0);
     const [row, setRow] = useState();
     const [dropping, setDropping] = useState(false);
-    const [moedaAtual, setMoedaAtual] = useState(null);
 
     useEffect(() => {
         if (hoveredColumn !== undefined && hoveredColumn !== column) {
             setColumn(hoveredColumn);
         }
-    }, [hoveredColumn]);
+    }, [hoveredColumn, column]);
 
-    const dropMoeda = () => {
-        setMoedaAtual(turn); // guarda quem é o jogador desta jogada
+    const dropMoeda = useCallback(() => {
         if (winner !== 0 || jogadaBloqueada) return;
 
         if (dropped.find(drop => drop.x === 0 && drop.y === (column || 0))) return;
@@ -37,38 +34,27 @@ export default function Moeda({
         setDropping(true);
 
         setTimeout(() => {
-            setDropped([...dropped, { x: len, y: column || 0, jogador: turn }]);
+            setDropped(prevDropped => [...prevDropped, { x: len, y: column || 0, jogador: turn }]);
             setTurn(turn === 1 ? 2 : 1);
             setDropping(false);
-            setMoedaAtual(null);
             setJogadaBloqueada(false);
-        
+
             // Delay extra só para limpar o "row" e permitir a nova moeda suspensa aparecer
             setTimeout(() => {
                 setRow(undefined);
             }, 0); // <- podes ajustar este valor se precisares
         }, 500);
-        
-    };
 
-    const handleKeyDown = (event) => {
-        if (winner !== 0 || jogadaBloqueada) return;
+    }, [winner, jogadaBloqueada, dropped, column, turn, setJogadaBloqueada, setRow, setDropping, setDropped, setTurn]);
 
-        if ((event.key === 'ArrowLeft' || event.key === 'A' || event.key === 'a') && column > 0) {
-            setColumn(column - 1);
-        } else if ((event.key === 'ArrowRight' || event.key === 'D' || event.key === 'd') && column < 6) {
-            setColumn(column + 1);
-        } else if (event.key === 'Enter' || event.key === ' ') {
-            dropMoeda();
-        }
-    };
 
-    const handleDoubleClick = (event) => {
+
+    const handleDoubleClick = useCallback((event) => {
         if (winner !== 0 || jogadaBloqueada) return;
         if (event.button === 0) {
             dropMoeda();
         }
-    };
+    }, [winner, jogadaBloqueada, dropMoeda]);
 
     useEffect(() => {
         // Agora, NÃO resetamos column ao trocar de turno
@@ -76,14 +62,12 @@ export default function Moeda({
     }, [turn]);
 
     useEffect(() => {
-        document.addEventListener('keyup', handleKeyDown);
         document.addEventListener('dblclick', handleDoubleClick);
 
         return () => {
-            document.removeEventListener('keyup', handleKeyDown);
             document.removeEventListener('dblclick', handleDoubleClick);
         };
-    }, [column, jogadaBloqueada, winner]);
+    }, [column, jogadaBloqueada, winner, handleDoubleClick]);
 
     return (
         <>

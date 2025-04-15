@@ -1,7 +1,7 @@
 import './tabela.css';
 import { linhas, colunas } from '../../../constants/constants';
 import Dropzone from '../DropZone/DropZone';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Tabela({
     winner,
@@ -11,7 +11,7 @@ export default function Tabela({
     trocarTurno,
     jogadaBloqueada,
     setJogadaBloqueada,
-    setTempoRestante
+    setTempoRestante,
 }) {
     const [hoveredColumn, setHoveredColumn] = useState(0);
 
