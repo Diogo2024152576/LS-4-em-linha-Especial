@@ -1,7 +1,6 @@
 import sairImage from '../../../assets/images/sair.png';
 import './main1vsComp.css'
 import { useState } from 'react';
-import TabelaPlvsComp from '../Tabela/tabelaPlvsComp';
 
 export default function JogoPlvsComp({ voltarAoMenu }) {
     //para comp vs player
@@ -31,9 +30,7 @@ export default function JogoPlvsComp({ voltarAoMenu }) {
               </div>
             </div>
           </div>
-          <div className='ct-tabela'>
-            <TabelaPlvsComp winner={winner} setWinner={setWinner}/>
-          </div>
+          
         </div>
         <div className='sair' onClick={voltarAoMenu}>
           <button id="sair">
