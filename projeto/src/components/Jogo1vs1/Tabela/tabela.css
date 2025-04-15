@@ -25,9 +25,15 @@
     grid-template-columns: repeat(var(--colunas), var(--tamanho));
     grid-template-rows: repeat(var(--linhas), var(--tamanho));
     position: relative;
-
+    
     margin: auto auto 0 auto;              
-    width: calc(var(--colunas) * var(--tamanho)); 
+    width: calc(var(--colunas) * var(--tamanho) + 40px); 
+    border: 20px solid #0f5c8f;
+    border-radius: 20px;
+}
+
+.borda-tabela {
+    width: auto;
 }
 
 .tabela div {

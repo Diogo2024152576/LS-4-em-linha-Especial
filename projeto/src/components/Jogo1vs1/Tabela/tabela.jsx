@@ -36,15 +36,17 @@ export default function Tabela({
                     setTempoRestante={setTempoRestante}
                 />
             </div>
-            <div className='tabela'>
-                {tabela.map((linha, i) =>
-                    linha.map((_, j) => (
-                        <div
-                            key={i + '-' + j}
-                            onMouseEnter={() => setHoveredColumn(j)}
-                        />
-                    ))
-                )}
+            <div className='borda-tabela'>
+                <div className='tabela'>
+                    {tabela.map((linha, i) =>
+                        linha.map((_, j) => (
+                            <div
+                                key={i + '-' + j}
+                                onMouseEnter={() => setHoveredColumn(j)}
+                            />
+                        ))
+                    )}
+                </div>
             </div>
         </div>
     );
