@@ -1,7 +1,15 @@
 import React from 'react'
 import './popUpVencedor.css'
 
-export default function PopUpVencedor({ winner, player1, player2, onReplay, onReset }) {
+
+export default function PopUpVencedor({ 
+    winner, 
+    player1, 
+    player2,
+    reporJogo, 
+    jogarNovamente
+}) {
+
     return (
         <div className='popup-winner'>
             <div className='inner-box'>
@@ -12,8 +20,8 @@ export default function PopUpVencedor({ winner, player1, player2, onReplay, onRe
                     }
                 </div>
                 <div className='botoes'>
-                    <button onClick={null}>Jogar Novamente</button>
-                    <button onClick={null}>Reiniciar Jogo</button>
+                    <button onClick={jogarNovamente}>Jogar Novamente</button>
+                    <button onClick={reporJogo}>Reiniciar Jogo</button>
                 </div>
             </div>
         </div>

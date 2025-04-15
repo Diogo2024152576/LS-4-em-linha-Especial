@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import JogoPlvsPl from '../Jogo/jogo1vs1'
 
+
 export default function IntroduzirPlayers({ voltarAoMenu }) {
 
     const [player1, setPlayer1] = useState('')
@@ -29,6 +30,8 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
           player1={player1}
           player2={player2}
           voltarAoMenu={voltarAoMenu}
+          setPlayer1={setPlayer1}
+          setPlayer2={setPlayer2}
         />
       )
     }

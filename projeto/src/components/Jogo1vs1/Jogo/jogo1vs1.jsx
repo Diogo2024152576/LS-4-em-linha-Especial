@@ -5,18 +5,32 @@ import { useEffect, useRef, useState } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor';
 import Header from '../Header/Header';
 import { temporizador } from '../../../constants/constants';
+import IntroduzirPlayers  from '../InsercaoNomes/InserirNomesPls'
 
-export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
+export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2}) {
     const [winner, setWinner] = useState(0);
     const [turno, setTurno] = useState(1);
     const [tempoRestante, setTempoRestante] = useState(temporizador);
     const [jogadaBloqueada, setJogadaBloqueada] = useState(false);
     const intervalRef = useRef(null);
+    const [mostrarIntroducao, setMostrarIntroducao] = useState(false); //(se verdade direciona para a introducao de nomes de players)
+    
 
     const trocarTurno = () => {
         setTurno(turno === 1 ? 2 : 1);
         setTempoRestante(temporizador);
     };
+
+    const reporJogo = () => {
+        setWinner(0);
+        setPlayer1('')
+        setPlayer2('')
+        setMostrarIntroducao(true)
+    }
+
+    const jogarNovamente = () => {
+        setWinner(0)
+    }
 
     useEffect(() => {
         if (winner !== 0) return;
@@ -36,6 +50,10 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
 
         return () => clearInterval(intervalRef.current);
     }, [turno, winner]);
+
+    if (mostrarIntroducao) {
+        return <IntroduzirPlayers voltarAoMenu={voltarAoMenu} />;
+    }
 
     return (
         <div className='jogo-main'>
@@ -74,6 +92,8 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu }) {
                         winner={winner}
                         player1={player1}
                         player2={player2}
+                        reporJogo={reporJogo}
+                        jogarNovamente={jogarNovamente}
                     />
                 )}
             </div>
