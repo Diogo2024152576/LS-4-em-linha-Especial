@@ -1,0 +1,76 @@
+.jogo-main .jogo .header-1vscomp {
+  position: relative;
+  margin:  auto auto calc(var(--tamanho) * 0.2) auto;
+  background-color: rgb(168, 173, 169);
+  border-radius: 0px 0px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 80px;
+  padding: 10px;
+  color: black;
+  line-height: 1.5; 
+}
+
+
+.jogo-main .jogo .header-1vscomp .jogadores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+  
+.jogo-main .jogo .header-1vscomp .jogadores .player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jogo-main .jogo .header-1vscomp .jogadores .comp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jogo-main .jogo .header-1vscomp .jogadores .circulo_esq {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+}
+
+.jogo-main .jogo .header-1vscomp .jogadores .circulo_dir {
+  background-color: rgb(253, 214, 40);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+  
+.jogo-main .jogo .header-1vscomp .jogadores .ct-nome-tempo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+.jogo-main .jogo .header-1vscomp .jogadores .txt p{
+    margin: 0;
+    font-size: 20px;
+}
+
+.jogo-main .jogo .header-1vscomp .jogadores .player .circulo_esq .ct-nome-tempo p {
+    font-size: 10px;
+}
+
+.jogo-main .jogo .ct-tabela {
+  width: 80%;
+  background-color: transparent;
+  margin:  0 auto;
+}
+
+
+
+  
+  
