@@ -7,8 +7,8 @@ export default function Header({
     player1,
     player2,
     tempoRestante,
-    pontuacao1 = 0,
-    pontuacao2 = 0,
+    pontuacao1,
+    pontuacao2,
     turno
 }) {
     const [bordaCor, setBordaCor] = useState('green');

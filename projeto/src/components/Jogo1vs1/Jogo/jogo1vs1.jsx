@@ -14,7 +14,8 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [jogadaBloqueada, setJogadaBloqueada] = useState(false);
     const intervalRef = useRef(null);
     const [mostrarIntroducao, setMostrarIntroducao] = useState(false); //(se verdade direciona para a introducao de nomes de players)
-    
+    const [pontos_pl1, setPontospl1] = useState(0); //pontuacoes dos pls
+    const [pontos_pl2, setPontospl2] = useState(0);
 
     const trocarTurno = () => {
         setTurno(turno === 1 ? 2 : 1);
@@ -51,6 +52,14 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
         return () => clearInterval(intervalRef.current);
     }, [turno, winner]);
 
+    //arrow function de atb de pontuacoes aos pls (incrementar)
+    useEffect(() => {
+        if (winner == 1)
+            setPontospl1(prev => prev + 1)
+        else if (winner == 2)
+            setPontospl1(prev => prev + 1)
+    }, [winner])
+
     if (mostrarIntroducao) {
         return <IntroduzirPlayers voltarAoMenu={voltarAoMenu} />;
     }
@@ -62,8 +71,8 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                     player1={player1}
                     player2={player2}
                     tempoRestante={tempoRestante}
-                    pontuacao1={0}
-                    pontuacao2={0}
+                    pontuacao1={pontos_pl1}
+                    pontuacao2={pontos_pl2}
                     turno={turno}
                 />
                 <div className='ct-tabela-jogo'>
