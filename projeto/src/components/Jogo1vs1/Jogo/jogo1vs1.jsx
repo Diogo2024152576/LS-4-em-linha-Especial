@@ -54,10 +54,10 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
 
     //arrow function de atb de pontuacoes aos pls (incrementar)
     useEffect(() => {
-        if (winner == 1)
+        if (winner === 1)
             setPontospl1(prev => prev + 1)
-        else if (winner == 2)
-            setPontospl1(prev => prev + 1)
+        else if (winner === 2)
+            setPontospl2(prev => prev + 1)
     }, [winner])
 
     if (mostrarIntroducao) {
