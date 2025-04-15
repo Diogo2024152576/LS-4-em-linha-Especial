@@ -75,10 +75,9 @@
 
 
 
-/* A bolinha em cima */
 .moeda-cor {
-    width: 80%; /* aumentamos o tamanho */
-    height: 80%;
+    width: 75%; 
+    height: 75%;
     border-radius: 50%;
     z-index: 1;
 }

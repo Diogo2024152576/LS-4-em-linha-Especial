@@ -33,7 +33,7 @@ export default function Header({
                             className="tempo-borda"
                             style={{
                                 '--percent': turno === 1 ? `${porcentagem}` : 0,
-                                '--bordaCor': turno === 1 ? bordaCor : '#ccc'
+                                '--bordaCor': turno === 1 ? bordaCor : '#cccccc00'
                             }}                            
                         >
                             <div className="moeda-cor jogador1-cor"></div>
@@ -56,7 +56,7 @@ export default function Header({
                             className="tempo-borda"
                             style={{
                                 '--percent': turno === 2 ? `${porcentagem}` : 0,
-                                '--bordaCor': turno === 2 ? bordaCor : '#ccc'
+                                '--bordaCor': turno === 2 ? bordaCor : '#cccccc00'
                             }}                            
                         >
                             <div className="moeda-cor jogador2-cor"></div>
