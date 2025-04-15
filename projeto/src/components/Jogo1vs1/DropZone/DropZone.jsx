@@ -27,7 +27,7 @@ export default function DropZone({
                 <div
                     key={i}
                     className={`p${m.jogador}`}
-                    style={{ transform: `translate(${m.y * tamanho}px, ${m.x * tamanho + 120}px)` }}
+                    style={{ transform: `translate(${m.y * tamanho}px, ${m.x * tamanho + 140}px)` }}
                 />
             )}
 

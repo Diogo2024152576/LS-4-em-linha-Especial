@@ -29,12 +29,12 @@
 .drop-zone .active.column-5 {margin-left: 500px;}
 .drop-zone .active.column-6 {margin-left: 600px;}
 
-.drop-zone .active.row-0 {transform: translateY(120px);}
-.drop-zone .active.row-1 {transform: translateY(220px);}
-.drop-zone .active.row-2 {transform: translateY(320px);}
-.drop-zone .active.row-3 {transform: translateY(420px);}
-.drop-zone .active.row-4 {transform: translateY(520px);}
-.drop-zone .active.row-5 {transform: translateY(620px);}
+.drop-zone .active.row-0 {transform: translateY(140px);}
+.drop-zone .active.row-1 {transform: translateY(240px);}
+.drop-zone .active.row-2 {transform: translateY(340px);}
+.drop-zone .active.row-3 {transform: translateY(440px);}
+.drop-zone .active.row-4 {transform: translateY(540px);}
+.drop-zone .active.row-5 {transform: translateY(640px);}
 
 /*.drop-zone .active.column--.row-- {transition: none;}  */
 
