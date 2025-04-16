@@ -1,4 +1,4 @@
-import sairImage from '../../../assets/images/sair.png';
+import sairImage from '../../../assets/images/sair_b.png';
 import './main1vsComp.css'
 import { useState } from 'react';
 

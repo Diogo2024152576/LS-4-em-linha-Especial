@@ -52,3 +52,10 @@
 .popup-winner .botoes button:hover {
     transform: scale(1.1);
 }
+
+.popup-winner .botoes button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -1,5 +1,5 @@
 import './InserirNomesPls.css'
-import sairImage from '../../../assets/images/sair.png';
+import sairImage from '../../../assets/images/sair_b.png';
 import React from 'react'
 import { useState } from 'react'
 import JogoPlvsPl from '../Jogo/jogo1vs1'
@@ -41,11 +41,13 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         <h2>Modo 1 vs 1</h2>
         <input
             type="text"
+            maxLength={12}
             placeholder="Nome do Jogador 1"
             onChange={(e) => setPlayer1(e.target.value)}
           />
           <input
             type="text"
+            maxLength={12}
             placeholder="Nome do Jogador 2"
             onChange={(e) => setPlayer2(e.target.value)}
           />

@@ -1,7 +1,7 @@
 import './tabela.css';
 import { linhas, colunas } from '../../../constants/constants';
 import Dropzone from '../DropZone/DropZone';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Tabela({
     winner,
@@ -12,14 +12,20 @@ export default function Tabela({
     jogadaBloqueada,
     setJogadaBloqueada,
     setTempoRestante,
+    limparTabelaTrigger,
 }) {
     const [hoveredColumn, setHoveredColumn] = useState(0);
-
-    const tabela =
-        new Array(linhas)
-            .fill()
-            .map(() => new Array(colunas).fill(''));
-
+    const [tabela, setTabela] = useState(
+        new Array(linhas).fill().map(() => new Array(colunas).fill(''))
+    );
+    
+    // Efeito para limpar tabela sempre que trigger mudar
+    useEffect(() => {
+        const novaTabela = new Array(linhas).fill().map(() => new Array(colunas).fill(''));
+        console.log("Nova tabela:", novaTabela);
+        setTabela(novaTabela);
+    }, [limparTabelaTrigger]);
+    
 
     return (
         <div className='container'>
@@ -34,14 +40,18 @@ export default function Tabela({
                     jogadaBloqueada={jogadaBloqueada}
                     setJogadaBloqueada={setJogadaBloqueada}
                     setTempoRestante={setTempoRestante}
+                    tabela={tabela}
+                    setTabela={setTabela}
+                    limparTabelaTrigger={limparTabelaTrigger}
                 />
             </div>
             <div className='borda-tabela'>
                 <div className='tabela'>
                     {tabela.map((linha, i) =>
-                        linha.map((_, j) => (
+                        linha.map((celula, j) => (
                             <div
                                 key={i + '-' + j}
+                                className={celula}
                                 onMouseEnter={() => setHoveredColumn(j)}
                             />
                         ))

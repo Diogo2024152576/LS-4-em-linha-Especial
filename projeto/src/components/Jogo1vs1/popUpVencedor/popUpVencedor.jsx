@@ -1,5 +1,6 @@
 import React from 'react'
 import './popUpVencedor.css'
+import sairImage from '../../../assets/images/sair_w.png';
 
 
 export default function PopUpVencedor({ 
@@ -7,7 +8,8 @@ export default function PopUpVencedor({
     player1, 
     player2,
     reporJogo, 
-    jogarNovamente
+    jogarNovamente,
+    voltarMenu
 }) {
 
     return (
@@ -22,6 +24,10 @@ export default function PopUpVencedor({
                 <div className='botoes'>
                     <button onClick={jogarNovamente}>Jogar Novamente</button>
                     <button onClick={reporJogo}>Trocar Jogadores</button>
+                    <button onClick={voltarMenu}>
+                        <img src={sairImage} alt="Voltar ao menu" />
+                        <p>Sair do Jogo</p>                
+                    </button>
                 </div>
             </div>
         </div>

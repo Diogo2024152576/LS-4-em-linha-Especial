@@ -13,6 +13,7 @@ export default function DropZone({
     trocarTurno,
     jogadaBloqueada,
     setJogadaBloqueada,
+    limparTabelaTrigger,
 }) {
     const [dropped, setDropped] = useState([]);
 
@@ -20,6 +21,10 @@ export default function DropZone({
         const vencedorJogo = encontrarVencedor(dropped, linhas, colunas);
         setWinner(vencedorJogo);
     }, [dropped, setWinner]);
+
+    useEffect(() => {
+        setDropped([]); // limpar as moedas do ecra (visiblidade)
+    }, [limparTabelaTrigger]);
 
     return (
         <div className='drop-zone'>
