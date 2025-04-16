@@ -3,3 +3,17 @@ objetivos 15-04
 - guardar ultima pos ao inserir bola
 - gerir vencedores (atingir 4 bolas da mesma cor vertical horizontal diagonal)
 - trabalhar no header (icon jogadores, tempo de jogo, pontuações, border de acordo com o termino do tempo)
+- Corrigir bugs
+
+objetivos 16-04
+-Mexer css(Banners JvsJ e JvsPC, botoes, cores de fundo, cores do timer) - Diogo
+-Destacar coluna (hover) - Diogo
+-Primeiro jogador de forma aleatoria
+-Jogar Novamente - Ambos
+-Adicionar Voltar ao Meno no PopUp Vencedor
+
+objetivos ...
+Definir tamanho maximo de nome
+Quando faz o 4 em linha destacar a linha ganhadora (ou com uma borda a rodear ou com um * dentro das 4 moedas em questão)
+nivel pc a funcionar
+espaços especiais

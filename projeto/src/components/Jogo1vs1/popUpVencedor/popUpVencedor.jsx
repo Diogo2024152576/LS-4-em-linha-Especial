@@ -21,7 +21,7 @@ export default function PopUpVencedor({
                 </div>
                 <div className='botoes'>
                     <button onClick={jogarNovamente}>Jogar Novamente</button>
-                    <button onClick={reporJogo}>Reiniciar Jogo</button>
+                    <button onClick={reporJogo}>Trocar Jogadores</button>
                 </div>
             </div>
         </div>
