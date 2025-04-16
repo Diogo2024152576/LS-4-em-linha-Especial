@@ -6,7 +6,7 @@ objetivos 15-04
 - Corrigir bugs
 
 objetivos 16-04
--Mexer css(Banners JvsJ e JvsPC, botoes, cores de fundo, cores do timer) - Diogo
+-Mexer css(Banners JvsJ e JvsPC, cores do timer) - feito (Diogo)
 -Destacar coluna (hover) - Diogo
 -Primeiro jogador de forma aleatoria feito (Rafael)
 -Jogar Novamente - feito(Rafael)

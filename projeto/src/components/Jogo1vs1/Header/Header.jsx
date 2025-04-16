@@ -18,9 +18,9 @@ export default function Header({
         if (tempoRestante > 5) {
             setBordaCor('green');
         } else if (tempoRestante > 2) {
-            setBordaCor('yellow');
+            setBordaCor('#ffa500'); 
         } else {
-            setBordaCor('red');
+            setBordaCor('#c74c4c');
         }
     }, [tempoRestante]);
 
