@@ -1,5 +1,3 @@
-
-
 .selecaoJogada {
     position: fixed;
     top: 50%;
@@ -14,10 +12,9 @@
     padding: 20px;
     border-radius: 10px;
     min-width: 450px;
-    min-height: auto;
     width: auto;
     box-sizing: border-box;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6)
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .selecaoJogada h1 {
@@ -34,15 +31,41 @@
     margin-top: 40px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 70px;
 }
 
 .selecaoJogada .selecao button {
-    background-color: #fff;
-    width:  180px;
-    height: 80px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
+
+.selecaoJogada .selecao button:hover {
+    transform: scale(1.05);
+}
+
+/* Botão com imagem (Player vs Player) */
+.selecaoJogada .selecao .pvsp, .selecaoJogada .selecao .pvspc {
+    width: 100px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.selecaoJogada .selecao .pvsp img, .selecaoJogada .selecao .pvspc img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+

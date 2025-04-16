@@ -2,8 +2,8 @@
     --tamanho : 100px;
     --colunas : 7;
     --linhas : 6;
-    --p1 : rgb(255, 0, 0);
-    --p2 : rgb(253, 214, 40);
+    --p1 : #ff0000;
+    --p2 : #fdd628;
     --cor_fundo : #1e1e2f
 }
 
@@ -16,6 +16,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: rgb(216, 207, 207);
+    background-color: #c4c1bd;
 }
   

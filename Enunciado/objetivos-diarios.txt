@@ -8,12 +8,13 @@ objetivos 15-04
 objetivos 16-04
 -Mexer css(Banners JvsJ e JvsPC, botoes, cores de fundo, cores do timer) - Diogo
 -Destacar coluna (hover) - Diogo
--Primeiro jogador de forma aleatoria
--Jogar Novamente - Ambos
--Adicionar Voltar ao Meno no PopUp Vencedor
+-Primeiro jogador de forma aleatoria - Rafael
+-Jogar Novamente - Rafael
+-Adicionar Voltar ao Meno no PopUp Vencedor - Rafael
+-Definir tamanho maximo de nomes - Rafael
 
 objetivos ...
-Definir tamanho maximo de nome
 Quando faz o 4 em linha destacar a linha ganhadora (ou com uma borda a rodear ou com um * dentro das 4 moedas em questão)
 nivel pc a funcionar
 espaços especiais
+alertas em baixo do form
