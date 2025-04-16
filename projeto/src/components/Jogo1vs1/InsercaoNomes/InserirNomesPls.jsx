@@ -1,5 +1,5 @@
 import './InserirNomesPls.css'
-import sairImage from '../../../assets/images/sair.png';
+import sairImage from '../../../assets/images/sair_b.png';
 import React from 'react'
 import { useState } from 'react'
 import JogoPlvsPl from '../Jogo/jogo1vs1'

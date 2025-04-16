@@ -10,7 +10,7 @@ objetivos 16-04
 -Destacar coluna (hover) - Diogo
 -Primeiro jogador de forma aleatoria
 -Jogar Novamente - Ambos
--Adicionar Voltar ao Meno no PopUp Vencedor
+-Adicionar Voltar ao Menu no PopUp Vencedor - feito (Rafael)
 
 objetivos ...
 Definir tamanho maximo de nome

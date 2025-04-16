@@ -1,5 +1,5 @@
 import './jogo1vs1.css';
-import sairImage from '../../../assets/images/sair.png';
+import sairImage from '../../../assets/images/sair_b.png';
 import Tabela from '../Tabela/tabela';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor';
@@ -9,7 +9,7 @@ import IntroduzirPlayers  from '../InsercaoNomes/InserirNomesPls'
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2}) {
     const [winner, setWinner] = useState(0);
-    const [turno, setTurno] = useState(1);
+    const [turno, setTurno] = useState(Math.floor(Math.random() * 2) + 1); //jogador que inicia o jogo 
     const [tempoRestante, setTempoRestante] = useState(temporizador);
     const [jogadaBloqueada, setJogadaBloqueada] = useState(false);
     const intervalRef = useRef(null);
@@ -103,6 +103,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                         player2={player2}
                         reporJogo={reporJogo}
                         jogarNovamente={jogarNovamente}
+                        voltarMenu={voltarAoMenu}
                     />
                 )}
             </div>
