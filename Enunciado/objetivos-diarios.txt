@@ -9,8 +9,11 @@ objetivos 16-04
 -Mexer css(Banners JvsJ e JvsPC, botoes, cores de fundo, cores do timer) - Diogo
 -Destacar coluna (hover) - Diogo
 -Primeiro jogador de forma aleatoria feito(Rafael)
--Jogar Novamente - Ambos
+-Jogar Novamente - feito(Rafael)
 -Adicionar Voltar ao Menu no PopUp Vencedor - feito (Rafael)
+-definir length - 12ch para cada utilizadores feito(rafael)
+-espaços especiais
+-estrelinhas nas bolas quando jogar ganha
 
 objetivos ...
 Definir tamanho maximo de nome

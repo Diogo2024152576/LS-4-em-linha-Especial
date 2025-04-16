@@ -33,7 +33,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
 
     const jogarNovamente = () => {
         setWinner(0);
-        setTurno(Math.floor(Math.random() * 2) + 1); // novo turno aleatório
+        setTurno(Math.floor(Math.random() * 2) + 1); 
         setLimparTrigger(prev => prev + 1); // força reset da tabela
     }
 

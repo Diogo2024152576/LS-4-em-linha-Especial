@@ -41,11 +41,13 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         <h2>Modo 1 vs 1</h2>
         <input
             type="text"
+            maxLength={12}
             placeholder="Nome do Jogador 1"
             onChange={(e) => setPlayer1(e.target.value)}
           />
           <input
             type="text"
+            maxLength={12}
             placeholder="Nome do Jogador 2"
             onChange={(e) => setPlayer2(e.target.value)}
           />
