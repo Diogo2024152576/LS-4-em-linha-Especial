@@ -8,7 +8,7 @@ objetivos 15-04
 objetivos 16-04
 -Mexer css(Banners JvsJ e JvsPC, botoes, cores de fundo, cores do timer) - Diogo
 -Destacar coluna (hover) - Diogo
--Primeiro jogador de forma aleatoria
+-Primeiro jogador de forma aleatoria feito(Rafael)
 -Jogar Novamente - Ambos
 -Adicionar Voltar ao Menu no PopUp Vencedor - feito (Rafael)
 

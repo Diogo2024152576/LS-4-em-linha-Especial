@@ -16,6 +16,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [mostrarIntroducao, setMostrarIntroducao] = useState(false); //(se verdade direciona para a introducao de nomes de players)
     const [pontos_pl1, setPontospl1] = useState(0); //pontuacoes dos pls
     const [pontos_pl2, setPontospl2] = useState(0);
+    const [limparTrigger, setLimparTrigger] = useState(0);
     
 
     const trocarTurno = useCallback(() => {
@@ -31,7 +32,9 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     }
 
     const jogarNovamente = () => {
-        setWinner(0)
+        setWinner(0);
+        setTurno(Math.floor(Math.random() * 2) + 1); // novo turno aleatório
+        setLimparTrigger(prev => prev + 1); // força reset da tabela
     }
 
     useEffect(() => {
@@ -86,6 +89,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                         setJogadaBloqueada={setJogadaBloqueada}
                         setTempoRestante={setTempoRestante}
                         tempoRestante={tempoRestante}
+                        limparTabelaTrigger={limparTrigger}
                     />
                 </div>
             </div>
