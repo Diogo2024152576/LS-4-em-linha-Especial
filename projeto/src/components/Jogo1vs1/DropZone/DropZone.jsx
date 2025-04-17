@@ -14,6 +14,7 @@ export default function DropZone({
     jogadaBloqueada,
     setJogadaBloqueada,
     limparTabelaTrigger,
+    bonusCoords = [], 
 }) {
     const [dropped, setDropped] = useState([]);
 
@@ -23,14 +24,31 @@ export default function DropZone({
     }, [dropped, setWinner]);
 
     useEffect(() => {
-        setDropped([]); // limpar as moedas do ecra (visiblidade)
+        setDropped([]);
     }, [limparTabelaTrigger]);
+
+    const isBonus = (x, y) => {
+        return bonusCoords.some(coord => coord.x === x && coord.y === y);
+    };
 
     return (
         <div className='drop-zone'>
+            {/* Grelha com bonus */}
+            {Array.from({ length: linhas }).map((_, x) =>
+                Array.from({ length: colunas }).map((_, y) => {
+                    const bonusClass = isBonus(x, y) ? 'bonus-cell' : '';
+                    return (
+                        <div
+                            key={`cell-${x}-${y}`}
+                            className={`celula ${bonusClass}`}
+                            style={{ left: `${y * tamanho}px`, top: `${x * tamanho + 140}px` }}
+                        />
+                    );
+                })
+            )}
             {dropped.map((m, i) =>
                 <div
-                    key={i}
+                    key={`moeda-${i}`}
                     className={`p${m.jogador}`}
                     style={{ transform: `translate(${m.y * tamanho}px, ${m.x * tamanho + 140}px)` }}
                 />
@@ -50,3 +68,4 @@ export default function DropZone({
         </div>
     );
 }
+

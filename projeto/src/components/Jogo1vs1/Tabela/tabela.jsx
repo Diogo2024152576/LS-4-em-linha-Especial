@@ -13,6 +13,7 @@ export default function Tabela({
     setJogadaBloqueada,
     setTempoRestante,
     limparTabelaTrigger,
+    bonusCoords,
 }) {
     const [hoveredColumn, setHoveredColumn] = useState(0);
     const [tabela, setTabela] = useState(
@@ -22,10 +23,9 @@ export default function Tabela({
     // Efeito para limpar tabela sempre que trigger mudar
     useEffect(() => {
         const novaTabela = new Array(linhas).fill().map(() => new Array(colunas).fill(''));
-        console.log("Nova tabela:", novaTabela);
         setTabela(novaTabela);
     }, [limparTabelaTrigger]);
-    
+
 
     return (
         <div className='container'>
@@ -43,6 +43,7 @@ export default function Tabela({
                     tabela={tabela}
                     setTabela={setTabela}
                     limparTabelaTrigger={limparTabelaTrigger}
+                    bonusCoords={bonusCoords}
                 />
             </div>
             <div className='borda-tabela'>

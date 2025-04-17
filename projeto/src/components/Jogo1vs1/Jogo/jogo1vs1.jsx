@@ -17,6 +17,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [pontos_pl1, setPontospl1] = useState(0); //pontuacoes dos pls
     const [pontos_pl2, setPontospl2] = useState(0);
     const [limparTrigger, setLimparTrigger] = useState(0);
+    const [bonusCoords, setBonusCoords] = useState([]); //vetor dos bonus
     
 
     const trocarTurno = useCallback(() => {
@@ -31,11 +32,27 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
         setMostrarIntroducao(true)
     }
 
+    //gerar random's de bonus
+    const gerarBonus = () => {
+        const coords = [];
+        for (let i = 0; i < 6; i++) {
+            const x = Math.floor(Math.random() * 7); // colunas
+            const y = Math.floor(Math.random() * 6); // linhas
+            coords.push({ x, y });
+        }
+        setBonusCoords(coords);
+    };
+    
+
     const jogarNovamente = () => {
         setWinner(0);
-        setTurno(Math.floor(Math.random() * 2) + 1); 
-        setLimparTrigger(prev => prev + 1); // força reset da tabela
-    }
+        setTurno(Math.floor(Math.random() * 2) + 1);
+        setLimparTrigger(prev => prev + 1);
+        setTimeout(() => {
+            gerarBonus(); // gerar bónus 
+        }, 0); // delay para que a limpeza seja feita
+    };
+    
 
     useEffect(() => {
         if (winner !== 0) return;
@@ -54,6 +71,10 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
         }, 1000);
         return () => clearInterval(intervalRef.current);
     }, [turno, winner, trocarTurno]);
+
+    useEffect(() => {
+        gerarBonus()
+    }, []);
 
     //arrow function de atb de pontuacoes aos pls (incrementar)
     useEffect(() => {
@@ -90,6 +111,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                         setTempoRestante={setTempoRestante}
                         tempoRestante={tempoRestante}
                         limparTabelaTrigger={limparTrigger}
+                        bonusCoords={bonusCoords}
                     />
                 </div>
             </div>
