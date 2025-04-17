@@ -37,6 +37,21 @@
 }
 
 .tabela div {
-    background: url(../../../assets/images/quadrado.svg) ;
+    position: relative;
+    width: var(--tamanho);
+    height: var(--tamanho);
+    background: url(../../../assets/images/quadrado.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
+
+.coluna-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* camada escura */
+}
