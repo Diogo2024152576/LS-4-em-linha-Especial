@@ -7,14 +7,14 @@ objetivos 15-04
 
 objetivos 16-04
 -Mexer css(Banners JvsJ e JvsPC, cores do timer) - feito (Diogo)
--Destacar coluna (hover) - Diogo
+-Destacar coluna (hover) - feito (Diogo)
 -Primeiro jogador de forma aleatoria feito (Rafael)
 -Jogar Novamente - feito(Rafael)
 -Adicionar Voltar ao Menu no PopUp Vencedor - feito (Rafael)
 -Definir tamanho maximo de nomes - 12ch para cada utilizadores feito (Rafael)
 
 objetivos 17-04
-alertas em baixo do form
+alertas em baixo do form - feito (Diogo)
 espaços especiais
 
 
