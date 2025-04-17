@@ -35,7 +35,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     //gerar random's de bonus
     const gerarBonus = () => {
         const coords = [];
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 5; i++) {
             const x = Math.floor(Math.random() * 7); // colunas
             const y = Math.floor(Math.random() * 6); // linhas
             coords.push({ x, y });
