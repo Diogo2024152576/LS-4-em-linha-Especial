@@ -53,5 +53,5 @@
 /* estilos para apanhar bonus*/
 .bonus-cell {
     border: 12px dashed green;
-    box-shadow: 0 0 10px green;
+    z-index: 100;
 }

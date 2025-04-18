@@ -34,14 +34,22 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
 
     //gerar random's de bonus
     const gerarBonus = () => {
-        const coords = [];
-        for (let i = 0; i < 5; i++) {
-            const x = Math.floor(Math.random() * 7); // colunas
-            const y = Math.floor(Math.random() * 6); // linhas
-            coords.push({ x, y });
+        const coords = new Set();
+    
+        while (coords.size < 5) {
+            const x = Math.floor(Math.random() * 6);
+            const y = Math.floor(Math.random() * 7); 
+            coords.add(`${x},${y}`);
         }
-        setBonusCoords(coords);
+    
+        const coordsArray = Array.from(coords).map(coord => {
+            const [x, y] = coord.split(',').map(Number);
+            return { x, y };
+        });
+        console.log('bonusCoords:', coordsArray.map(({x, y}) => `(${y}, ${x})`).join(', '));
+        setBonusCoords(coordsArray);
     };
+    
     
 
     const jogarNovamente = () => {

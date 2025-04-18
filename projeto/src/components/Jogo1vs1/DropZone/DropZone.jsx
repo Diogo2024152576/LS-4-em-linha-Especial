@@ -1,4 +1,4 @@
-import { colunas, linhas, tamanho } from '../../../constants/constants';
+import { colunas, linhas, tamanho, temporizador } from '../../../constants/constants';
 import './DropZone.css';
 import { useEffect, useState } from 'react';
 import Moeda from '../Moeda/Moeda';
@@ -13,8 +13,10 @@ export default function DropZone({
     trocarTurno,
     jogadaBloqueada,
     setJogadaBloqueada,
+    setTempoRestante,
     limparTabelaTrigger,
     bonusCoords = [], 
+
 }) {
     const [dropped, setDropped] = useState([]);
 
@@ -64,6 +66,9 @@ export default function DropZone({
                 trocarTurno={trocarTurno}
                 jogadaBloqueada={jogadaBloqueada}
                 setJogadaBloqueada={setJogadaBloqueada}
+                bonusCoords={bonusCoords}
+                setTempoRestante={setTempoRestante}
+                temporizador={temporizador}
             />
         </div>
     );

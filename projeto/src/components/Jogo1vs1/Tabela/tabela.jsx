@@ -40,10 +40,10 @@ export default function Tabela({
                     jogadaBloqueada={jogadaBloqueada}
                     setJogadaBloqueada={setJogadaBloqueada}
                     setTempoRestante={setTempoRestante}
-                    tabela={tabela}
                     setTabela={setTabela}
                     limparTabelaTrigger={limparTabelaTrigger}
                     bonusCoords={bonusCoords}
+
                 />
             </div>
             <div className='borda-tabela'>

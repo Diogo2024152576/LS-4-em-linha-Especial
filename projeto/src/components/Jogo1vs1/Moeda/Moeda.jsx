@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback} from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 export default function Moeda({ 
     turn,
@@ -7,9 +7,9 @@ export default function Moeda({
     setDropped,
     hoveredColumn,
     winner,
-    trocarTurno,
     jogadaBloqueada,
     setJogadaBloqueada,
+    bonusCoords,
     setTempoRestante,
 }) {
     const [column, setColumn] = useState(0);
@@ -34,20 +34,28 @@ export default function Moeda({
         setDropping(true);
 
         setTimeout(() => {
-            setDropped(prevDropped => [...prevDropped, { x: len, y: column || 0, jogador: turn }]);
-            setTurn(turn === 1 ? 2 : 1);
+            const novaMoeda = { x: len, y: column || 0, jogador: turn };
+            const caiuEmBonus = bonusCoords.some(b => b.x === novaMoeda.x && b.y === novaMoeda.y);
+
+            setDropped(prevDropped => [...prevDropped, novaMoeda]);
+
+            if (caiuEmBonus) {
+                setTempoRestante(10);
+                // Mantém o turno
+            } else {
+                setTurn(turn === 1 ? 2 : 1); // Alterna turno
+            }
+
             setDropping(false);
             setJogadaBloqueada(false);
 
-            // Delay extra só para limpar o "row" e permitir a nova moeda suspensa aparecer
+            // Reset da moeda suspensa
             setTimeout(() => {
                 setRow(undefined);
-            }, 0); // <- podes ajustar este valor se precisares
+            }, 0);
         }, 500);
 
-    }, [winner, jogadaBloqueada, dropped, column, turn, setJogadaBloqueada, setRow, setDropping, setDropped, setTurn]);
-
-
+    }, [winner, jogadaBloqueada, dropped, column, turn, setJogadaBloqueada, bonusCoords, setDropped, setTurn, setTempoRestante]);
 
     const handleDoubleClick = useCallback((event) => {
         if (winner !== 0 || jogadaBloqueada) return;
@@ -57,8 +65,7 @@ export default function Moeda({
     }, [winner, jogadaBloqueada, dropMoeda]);
 
     useEffect(() => {
-        // Agora, NÃO resetamos column ao trocar de turno
-        setRow(); // Isso ainda pode ser resetado
+        setRow();
     }, [turn]);
 
     useEffect(() => {
