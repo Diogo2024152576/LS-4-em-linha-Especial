@@ -15,9 +15,9 @@ objetivos 16-04
 
 objetivos 17-04
 alertas em baixo do form - feito (Diogo)
-espaços especiais
-
+espaços especiais - feito (Diogo)
 
 objetivos ...
-Quando faz o 4 em linha destacar a linha ganhadora (ou com uma borda a rodear ou com um * dentro das 4 moedas em questão)
+resolver bug de ao jogar entre o 1s e o 0s ele nao reinicia o tempo pois a bola tem um delay ao cair (para resolver congelar o tempo ao jogar)
+prender rato ao jogar
 nivel pc a funcionar
