@@ -7,29 +7,28 @@ export default function Moeda({
     setDropped,
     hoveredColumn,
     winner,
-    jogadaBloqueada,
-    setJogadaBloqueada,
     bonusCoords,
     setTempoRestante,
+    setTempoCongelado,
 }) {
     const [column, setColumn] = useState(0);
     const [row, setRow] = useState();
     const [dropping, setDropping] = useState(false);
 
     useEffect(() => {
-        if (hoveredColumn !== undefined && hoveredColumn !== column) {
+        if (!dropping && hoveredColumn !== undefined && hoveredColumn !== column) {
             setColumn(hoveredColumn);
         }
-    }, [hoveredColumn, column]);
+    }, [hoveredColumn, column, dropping]);
 
     const dropMoeda = useCallback(() => {
-        if (winner !== 0 || jogadaBloqueada) return;
+        if (winner !== 0) return;
 
         if (dropped.find(drop => drop.x === 0 && drop.y === (column || 0))) return;
 
         const len = 5 - dropped.filter(drop => drop.y === (column || 0)).length;
 
-        setJogadaBloqueada(true);
+        setTempoCongelado(true); 
         setRow(len);
         setDropping(true);
 
@@ -41,40 +40,40 @@ export default function Moeda({
 
             if (caiuEmBonus) {
                 setTempoRestante(10);
-                // Mantém o turno
+                // turno continua
             } else {
-                setTurn(turn === 1 ? 2 : 1); // Alterna turno
+                setTurn(turn === 1 ? 2 : 1);
             }
 
             setDropping(false);
-            setJogadaBloqueada(false);
+            setTempoCongelado(false);
 
-            // Reset da moeda suspensa
             setTimeout(() => {
                 setRow(undefined);
             }, 0);
-        }, 500);
+        }, 300); // Duração da queda
 
-    }, [winner, jogadaBloqueada, dropped, column, turn, setJogadaBloqueada, bonusCoords, setDropped, setTurn, setTempoRestante]);
+    }, [winner, dropped, column, turn, bonusCoords, setDropped, setTurn, setTempoRestante, setTempoCongelado]);
 
     const handleDoubleClick = useCallback((event) => {
-        if (winner !== 0 || jogadaBloqueada) return;
+        if (winner !== 0) return;
         if (event.button === 0) {
             dropMoeda();
         }
-    }, [winner, jogadaBloqueada, dropMoeda]);
+    }, [winner, dropMoeda]);
 
+    // Reset da linha suspensa a cada novo turno
     useEffect(() => {
         setRow();
     }, [turn]);
 
+    // Evento de clique duplo para dropar
     useEffect(() => {
         document.addEventListener('dblclick', handleDoubleClick);
-
         return () => {
             document.removeEventListener('dblclick', handleDoubleClick);
         };
-    }, [column, jogadaBloqueada, winner, handleDoubleClick]);
+    }, [column, winner, handleDoubleClick]);
 
     return (
         <>

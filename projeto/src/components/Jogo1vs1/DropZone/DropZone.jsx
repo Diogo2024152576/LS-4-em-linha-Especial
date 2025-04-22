@@ -11,12 +11,10 @@ export default function DropZone({
     turno,
     setTurno,
     trocarTurno,
-    jogadaBloqueada,
-    setJogadaBloqueada,
     setTempoRestante,
     limparTabelaTrigger,
     bonusCoords = [], 
-
+    setTempoCongelado,
 }) {
     const [dropped, setDropped] = useState([]);
 
@@ -64,11 +62,10 @@ export default function DropZone({
                 hoveredColumn={hoveredColumn}
                 winner={winner}
                 trocarTurno={trocarTurno}
-                jogadaBloqueada={jogadaBloqueada}
-                setJogadaBloqueada={setJogadaBloqueada}
                 bonusCoords={bonusCoords}
                 setTempoRestante={setTempoRestante}
                 temporizador={temporizador}
+                setTempoCongelado={setTempoCongelado}
             />
         </div>
     );

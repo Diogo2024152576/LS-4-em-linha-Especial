@@ -18,6 +18,6 @@ alertas em baixo do form - feito (Diogo)
 espaços especiais - feito (Diogo)
 
 objetivos ...
-resolver bug de ao jogar entre o 1s e o 0s ele nao reinicia o tempo pois a bola tem um delay ao cair (para resolver congelar o tempo ao jogar)
-prender rato ao jogar
+resolver bug de ao jogar entre o 1s e o 0s ele nao reinicia o tempo pois a bola tem um delay ao cair (para resolver congelar o tempo ao jogar) - Feito (Diogo)
+prender rato ao jogar - feito (Diogo) (nao prendi rato e sim nao muda coluna enquando a bola cai)
 nivel pc a funcionar

@@ -9,11 +9,10 @@ export default function Tabela({
     turno,
     setTurno,
     trocarTurno,
-    jogadaBloqueada,
-    setJogadaBloqueada,
     setTempoRestante,
     limparTabelaTrigger,
     bonusCoords,
+    setTempoCongelado,
 }) {
     const [hoveredColumn, setHoveredColumn] = useState(0);
     const [tabela, setTabela] = useState(
@@ -37,13 +36,11 @@ export default function Tabela({
                     turno={turno}
                     setTurno={setTurno}
                     trocarTurno={trocarTurno}
-                    jogadaBloqueada={jogadaBloqueada}
-                    setJogadaBloqueada={setJogadaBloqueada}
                     setTempoRestante={setTempoRestante}
                     setTabela={setTabela}
                     limparTabelaTrigger={limparTabelaTrigger}
                     bonusCoords={bonusCoords}
-
+                    setTempoCongelado={setTempoCongelado}
                 />
             </div>
             <div className='borda-tabela'>

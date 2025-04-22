@@ -7,18 +7,17 @@ import Header from '../Header/Header';
 import { temporizador } from '../../../constants/constants';
 import IntroduzirPlayers  from '../InsercaoNomes/InserirNomesPls'
 
-export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2}) {
+export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2 }) {
     const [winner, setWinner] = useState(0);
-    const [turno, setTurno] = useState(Math.floor(Math.random() * 2) + 1); //jogador que inicia o jogo 
+    const [turno, setTurno] = useState(Math.floor(Math.random() * 2) + 1);
     const [tempoRestante, setTempoRestante] = useState(temporizador);
-    const [jogadaBloqueada, setJogadaBloqueada] = useState(false);
+    const [tempoCongelado, setTempoCongelado] = useState(false);
     const intervalRef = useRef(null);
-    const [mostrarIntroducao, setMostrarIntroducao] = useState(false); //(se verdade direciona para a introducao de nomes de players)
-    const [pontos_pl1, setPontospl1] = useState(0); //pontuacoes dos pls
+    const [mostrarIntroducao, setMostrarIntroducao] = useState(false);
+    const [pontos_pl1, setPontospl1] = useState(0);
     const [pontos_pl2, setPontospl2] = useState(0);
     const [limparTrigger, setLimparTrigger] = useState(0);
-    const [bonusCoords, setBonusCoords] = useState([]); //vetor dos bonus
-    
+    const [bonusCoords, setBonusCoords] = useState([]);
 
     const trocarTurno = useCallback(() => {
         setTurno(turno === 1 ? 2 : 1);
@@ -27,40 +26,31 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
 
     const reporJogo = () => {
         setWinner(0);
-        setPlayer1('')
-        setPlayer2('')
-        setMostrarIntroducao(true)
-    }
+        setPlayer1('');
+        setPlayer2('');
+        setMostrarIntroducao(true);
+    };
 
-    //gerar random's de bonus
     const gerarBonus = () => {
         const coords = new Set();
-    
         while (coords.size < 5) {
             const x = Math.floor(Math.random() * 6);
-            const y = Math.floor(Math.random() * 7); 
+            const y = Math.floor(Math.random() * 7);
             coords.add(`${x},${y}`);
         }
-    
         const coordsArray = Array.from(coords).map(coord => {
             const [x, y] = coord.split(',').map(Number);
             return { x, y };
         });
-        console.log('bonusCoords:', coordsArray.map(({x, y}) => `(${y}, ${x})`).join(', '));
         setBonusCoords(coordsArray);
     };
-    
-    
 
     const jogarNovamente = () => {
         setWinner(0);
         setTurno(Math.floor(Math.random() * 2) + 1);
         setLimparTrigger(prev => prev + 1);
-        setTimeout(() => {
-            gerarBonus(); // gerar bónus 
-        }, 0); // delay para que a limpeza seja feita
+        setTimeout(() => gerarBonus(), 0);
     };
-    
 
     useEffect(() => {
         if (winner !== 0) return;
@@ -70,6 +60,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
 
         intervalRef.current = setInterval(() => {
             setTempoRestante(prev => {
+                if (tempoCongelado) return prev;
                 if (prev <= 1) {
                     trocarTurno();
                     return temporizador;
@@ -77,20 +68,18 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                 return prev - 1;
             });
         }, 1000);
+
         return () => clearInterval(intervalRef.current);
-    }, [turno, winner, trocarTurno]);
+    }, [turno, winner, trocarTurno, tempoCongelado]);
 
     useEffect(() => {
-        gerarBonus()
+        gerarBonus();
     }, []);
 
-    //arrow function de atb de pontuacoes aos pls (incrementar)
     useEffect(() => {
-        if (winner === 1)
-            setPontospl1(prev => prev + 1)
-        else if (winner === 2)
-            setPontospl2(prev => prev + 1)
-    }, [winner])
+        if (winner === 1) setPontospl1(prev => prev + 1);
+        else if (winner === 2) setPontospl2(prev => prev + 1);
+    }, [winner]);
 
     if (mostrarIntroducao) {
         return <IntroduzirPlayers voltarAoMenu={voltarAoMenu} />;
@@ -114,12 +103,11 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                         turno={turno}
                         setTurno={setTurno}
                         trocarTurno={trocarTurno}
-                        jogadaBloqueada={jogadaBloqueada}
-                        setJogadaBloqueada={setJogadaBloqueada}
                         setTempoRestante={setTempoRestante}
                         tempoRestante={tempoRestante}
                         limparTabelaTrigger={limparTrigger}
                         bonusCoords={bonusCoords}
+                        setTempoCongelado={setTempoCongelado}
                     />
                 </div>
             </div>
