@@ -1,11 +1,13 @@
 import './jogo1vs1.css';
 import sairImage from '../../../assets/images/sair_b.png';
+import info_icon from '../../../assets/images/info.png';
 import Tabela from '../Tabela/tabela';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor';
 import Header from '../Header/Header';
 import { temporizador } from '../../../constants/constants';
 import IntroduzirPlayers  from '../InsercaoNomes/InserirNomesPls'
+import PopUpInfo from '../PopUpInfo/info';
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2 }) {
     const [winner, setWinner] = useState(0);
@@ -18,6 +20,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [pontos_pl2, setPontospl2] = useState(0);
     const [limparTrigger, setLimparTrigger] = useState(0);
     const [bonusCoords, setBonusCoords] = useState([]);
+    const [mostrarInfo, setMostrarInfo] = useState(false)
 
     const trocarTurno = useCallback(() => {
         setTurno(turno === 1 ? 2 : 1);
@@ -111,11 +114,19 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                     />
                 </div>
             </div>
-            <div className='sair' onClick={voltarAoMenu}>
-                <button id="sair">
-                    <img src={sairImage} alt="Voltar ao menu" />
-                </button>
-                <p>Sair do Jogo</p>
+            <div className='sair-info'> 
+                <div className='info' onClick={() => setMostrarInfo(true)}>
+                    <button id='info'>
+                        <img src={info_icon} alt="Informações"/>
+                    </button>
+                    <p>Instruções</p>
+                </div>
+                <div className='sair' onClick={voltarAoMenu}>
+                    <button id="sair">
+                        <img src={sairImage} alt="Voltar ao menu"/>
+                    </button>
+                    <p>Sair do Jogo</p>    
+                </div>
             </div>
             <div className={`popup-Vencedor ${winner !== 0 ? 'show' : ''}`}>
                 {winner !== 0 && (
@@ -129,6 +140,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                     />
                 )}
             </div>
+            {mostrarInfo && <PopUpInfo fechar={() => setMostrarInfo(false)} />}
         </div>
     );
 }
