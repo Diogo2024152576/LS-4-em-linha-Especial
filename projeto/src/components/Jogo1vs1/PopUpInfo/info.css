@@ -37,6 +37,10 @@
     background-color: transparent;
 }
 
+.popup-info .header .fechar:hover {
+    transform: scale(1.1);
+}
+
 .popup-info .lista {
     margin-top: 20px;
     margin-left: 20px;
