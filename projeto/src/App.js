@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './assets/styles/App.css'
 import MenuSelecaoJogo from './components/popUpMenuInicial/menuSelecao'
 import IntroduzirPlayers from './components/Jogo1vs1/InsercaoNomes/InserirNomesPls'
+import IntroduzirPlayerVsPc from './components/Jogo1vsComp/InsercaoNomes/InserirNomesPls';
 import JogoPlvsComp from './components/Jogo1vsComp/Jogo/main1vsComp'
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
       <IntroduzirPlayers voltarAoMenu={() => setStarted(0)}/>
     )}
     {started === 2 && (
-      <JogoPlvsComp voltarAoMenu={() => setStarted(0)}/>
+      <IntroduzirPlayerVsPc voltarAoMenu={() => setStarted(0)}/>
     )}
     </div>
   );
