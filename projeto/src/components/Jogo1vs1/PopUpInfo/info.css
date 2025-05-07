@@ -1,0 +1,43 @@
+.popup-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    
+}
+
+.popup-info .content {
+    background-color: azure;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-info .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.popup-info .header h2 {
+    margin-left: 10px;
+}
+
+.popup-info .header .fechar {
+    border: none;
+    background-color: transparent;
+}
+
+.popup-info .lista {
+    margin-top: 20px;
+    margin-left: 20px;
+}

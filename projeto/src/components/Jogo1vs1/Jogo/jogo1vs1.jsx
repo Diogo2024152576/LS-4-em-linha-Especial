@@ -7,6 +7,7 @@ import PopUpVencedor from '../popUpVencedor/popUpVencedor';
 import Header from '../Header/Header';
 import { temporizador } from '../../../constants/constants';
 import IntroduzirPlayers  from '../InsercaoNomes/InserirNomesPls'
+import PopUpInfo from '../PopUpInfo/info';
 
 export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1, setPlayer2 }) {
     const [winner, setWinner] = useState(0);
@@ -19,6 +20,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [pontos_pl2, setPontospl2] = useState(0);
     const [limparTrigger, setLimparTrigger] = useState(0);
     const [bonusCoords, setBonusCoords] = useState([]);
+    const [mostrarInfo, setMostrarInfo] = useState(false)
 
     const trocarTurno = useCallback(() => {
         setTurno(turno === 1 ? 2 : 1);
@@ -113,7 +115,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                 </div>
             </div>
             <div className='sair-info'> 
-                <div className='info' onClick={null}>
+                <div className='info' onClick={() => setMostrarInfo(true)}>
                     <button id='info'>
                         <img src={info_icon} alt="Informações"/>
                     </button>
@@ -138,6 +140,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                     />
                 )}
             </div>
+            {mostrarInfo && <PopUpInfo fechar={() => setMostrarInfo(false)} />}
         </div>
     );
 }
