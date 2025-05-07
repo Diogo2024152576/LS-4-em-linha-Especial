@@ -1,5 +1,6 @@
 import './jogo1vs1.css';
 import sairImage from '../../../assets/images/sair_b.png';
+import info_icon from '../../../assets/images/info.png';
 import Tabela from '../Tabela/tabela';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import PopUpVencedor from '../popUpVencedor/popUpVencedor';
@@ -111,11 +112,19 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                     />
                 </div>
             </div>
-            <div className='sair' onClick={voltarAoMenu}>
-                <button id="sair">
-                    <img src={sairImage} alt="Voltar ao menu" />
-                </button>
-                <p>Sair do Jogo</p>
+            <div className='sair-info'> 
+                <div className='info' onClick={null}>
+                    <button id='info'>
+                        <img src={info_icon} alt="Informações"/>
+                    </button>
+                    <p>Instruções</p>
+                </div>
+                <div className='sair' onClick={voltarAoMenu}>
+                    <button id="sair">
+                        <img src={sairImage} alt="Voltar ao menu"/>
+                    </button>
+                    <p>Sair do Jogo</p>    
+                </div>
             </div>
             <div className={`popup-Vencedor ${winner !== 0 ? 'show' : ''}`}>
                 {winner !== 0 && (

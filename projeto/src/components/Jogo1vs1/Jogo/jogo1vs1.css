@@ -5,43 +5,59 @@
     height: 100vh; 
 }
 
-.jogo-main .sair {
+.jogo-main .sair-info {
     display: flex;
-    align-items: center; 
-    justify-content: center;
     flex-direction: row;
-    background-color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
     position: absolute;
     bottom: 10px;
     right: 10px;
     border: none;
     margin: 10px;
     padding: 8px 12px;
-    border-radius: 8px;
-    gap: 8px; 
-    cursor: pointer;
+    
+    border-radius: 12px;
 }
 
-.jogo-main .sair:hover {
-    border: 2px solid #cc2525;
+.jogo-main .sair-info .info,
+.jogo-main .sair-info .sair {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgb(151, 151, 151);
+    padding: 5px;
+    border-radius: 5px;
 }
 
-.jogo-main #sair {
+.jogo-main .sair-info .info #info,
+.jogo-main .sair-info .sair #sair{
     border: none;
     background: none;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 8px;
 }
 
-.jogo-main #sair img {
+.jogo-main .sair-info #sair img,
+.jogo-main .sair-info #info img {
     width: 20px;
     height: 20px;
 }
 
+.jogo-main .sair-info p {
+    margin-right: 8px;
+}
 
-
+.jogo-main .sair-info .info:hover,
+.jogo-main .sair-info .sair:hover {
+    transform: scale(1.1);
+}
 
 .jogo-main .jogo .ct-tabela-jogo {
     width: 80%;
