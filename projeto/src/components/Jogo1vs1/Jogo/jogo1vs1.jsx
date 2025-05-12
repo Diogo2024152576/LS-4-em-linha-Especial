@@ -121,11 +121,11 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                     </button>
                     <p>Instruções</p>
                 </div>
-                <div className='sair' onClick={voltarAoMenu}>
+                <div className='info' onClick={voltarAoMenu}>
                     <button id="sair">
                         <img src={sairImage} alt="Voltar ao menu"/>
                     </button>
-                    <p>Sair do Jogo</p>    
+                    <p id="sair-p">Sair do Jogo</p>    
                 </div>
             </div>
             <div className={`popup-Vencedor ${winner !== 0 ? 'show' : ''}`}>
