@@ -22,6 +22,14 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
     }
   };
 
+  //para poder usar a tecla enter
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleStart();
+    }
+  };
+  
+
   if (jogoIniciado) {
     return (
       <JogoPlvsPl
@@ -42,12 +50,14 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         maxLength={12}
         placeholder="Nome do Jogador 1"
         onChange={(e) => setPlayer1(e.target.value)}
+        onKeyDown={handleKeyPress}
       />
       <input
         type="text"
         maxLength={12}
         placeholder="Nome do Jogador 2"
         onChange={(e) => setPlayer2(e.target.value)}
+        onKeyDown={handleKeyPress}
       />
       {erro && (
         <div className="mensagem-erro">
