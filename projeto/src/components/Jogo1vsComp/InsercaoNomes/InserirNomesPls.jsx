@@ -17,10 +17,18 @@ export default function IntroduzirPlayerVsPc({ voltarAoMenu }) {
     }
   };
 
+  //para poder usar a tecla enter
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleStart();
+    }
+  };
+
   if (jogoIniciado) {
     return (
       <JogoPlvsPc
-        player={player}
+        player1={player}
+        setPlayer={setPlayer}
         voltarAoMenu={voltarAoMenu}
       />
     );
@@ -34,6 +42,7 @@ export default function IntroduzirPlayerVsPc({ voltarAoMenu }) {
         maxLength={12}
         placeholder="Nome do Jogador"
         onChange={(e) => setPlayer(e.target.value)}
+        onKeyDown={handleKeyPress}
       />
       {erro && (
         <div className="mensagem-erro">

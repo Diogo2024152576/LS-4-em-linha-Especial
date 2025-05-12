@@ -8,6 +8,7 @@ import { temporizador } from '../../../constants/constants';
 import IntroduzirPlayers from '../InsercaoNomes/InserirNomesPls';
 
 export default function JogoPlvsPc({ player1, setPlayer1, voltarAoMenu }) {
+  console.log("teste jogo" + player1);
   const [winner, setWinner] = useState(0);
   const [turno, setTurno] = useState(Math.floor(Math.random() * 2) + 1);
   const [tempoRestante, setTempoRestante] = useState(temporizador);
