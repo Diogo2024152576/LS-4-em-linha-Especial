@@ -50,7 +50,7 @@ export default function TabelaVsPC({
                             <div
                                 key={i + '-' + j}
                                 className={`${celula} ${hoveredColumn === j ? 'coluna-hover' : ''}`}
-                                onMouseEnter={() => setHoveredColumn(j)}
+                                onMouseEnter={() => turno === 1 && setHoveredColumn(j)}
                             />
                         ))
                     )}

@@ -61,14 +61,16 @@ export default function MoedaVsPC({
     useEffect(() => {
         if (winner !== 0) return;
         if (turn === 2) {
+            let colunaValida = Math.floor(Math.random() * 7);
+            while (dropped.filter(drop => drop.y === colunaValida).length >= 6) {
+                colunaValida = Math.floor(Math.random() * 7);
+            }
             setTimeout(() => {
-                let colunaValida = Math.floor(Math.random() * 7);
-                while (dropped.filter(drop => drop.y === colunaValida).length >= 6) {
-                    colunaValida = Math.floor(Math.random() * 7);
-                }
                 setHoveredColumn(colunaValida);
-                dropMoeda(colunaValida);
-            }, 3000); // Tempo de espera para a CPU jogar
+                setTimeout(() => {
+                    dropMoeda(colunaValida);
+                }, 3000); // 3 segundos depois de mover
+            }, 1000); // 1 segundo para mover
         }
     }, [turn, winner, dropped, dropMoeda, setHoveredColumn]);
 
