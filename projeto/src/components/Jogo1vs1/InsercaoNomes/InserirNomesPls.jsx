@@ -51,6 +51,7 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         placeholder="Nome do Jogador 1"
         onChange={(e) => setPlayer1(e.target.value)}
         onKeyDown={handleKeyPress}
+        autoFocus
       />
       <input
         type="text"

@@ -89,7 +89,7 @@ export default function MoedaVsPC({
                 cpuTimeoutRef.current = setTimeout(() => {
                     dropMoeda(colunaValida);
                     // O lock só é libertado quando o turno mudar (useEffect acima)
-                }, 3000);
+                }, 1500);
             }, 1000);
         }
         return () => {

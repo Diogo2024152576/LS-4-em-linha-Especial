@@ -43,6 +43,7 @@ export default function IntroduzirPlayerVsPc({ voltarAoMenu }) {
         placeholder="Nome do Jogador"
         onChange={(e) => setPlayer(e.target.value)}
         onKeyDown={handleKeyPress}
+        autoFocus
       />
       {erro && (
         <div className="mensagem-erro">
