@@ -76,7 +76,7 @@ export default function TabelaVsPC({
                         linha.map((celula, j) => (
                             <div
                                 key={i + '-' + j}
-                                className={`${celula} ${hoveredColumn === j ? 'coluna-hover' : ''}`}
+                                className={`${celula} ${(winner === 0 && hoveredColumn === j) ? 'coluna-hover' : ''}`}
                                 onMouseEnter={() => turno === 1 && setHoveredColumn(j)}
                             />
                         ))
