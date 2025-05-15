@@ -1,7 +1,7 @@
 import './tabela.css';
 import { linhas, colunas } from '../../../constants/constants';
 import DropzoneVsPC from '../DropZone/DropZone';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function TabelaVsPC({
     winner,
@@ -18,12 +18,25 @@ export default function TabelaVsPC({
     const [tabela, setTabela] = useState(
         new Array(linhas).fill().map(() => new Array(colunas).fill(''))
     );
+    const lastPlayerColumn = useRef(0);
 
     // Limpa tabela quando trigger mudar
     useEffect(() => {
         const novaTabela = new Array(linhas).fill().map(() => new Array(colunas).fill(''));
         setTabela(novaTabela);
     }, [limparTabelaTrigger]);
+
+    // Função para guardar a última coluna jogada pelo jogador humano
+    const setLastPlayerColumn = (col) => {
+        lastPlayerColumn.current = col;
+    };
+
+    // Quando o turno volta para o jogador humano, restaurar hoveredColumn
+    useEffect(() => {
+        if (turno === 1) {
+            setHoveredColumn(lastPlayerColumn.current);
+        }
+    }, [turno]);
 
     return (
         <div className='container'>
@@ -41,6 +54,7 @@ export default function TabelaVsPC({
                     limparTabelaTrigger={limparTabelaTrigger}
                     bonusCoords={bonusCoords}
                     setTempoCongelado={setTempoCongelado}
+                    setLastPlayerColumn={setLastPlayerColumn}
                 />
             </div>
             <div className='borda-tabela'>

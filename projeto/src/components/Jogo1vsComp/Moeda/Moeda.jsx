@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 
 export default function MoedaVsPC({
     turn,
@@ -11,16 +11,27 @@ export default function MoedaVsPC({
     bonusCoords,
     setTempoRestante,
     setTempoCongelado,
+    setLastPlayerColumn,
 }) {
     const [column, setColumn] = useState(0);
     const [row, setRow] = useState();
     const [dropping, setDropping] = useState(false);
+    const cpuJogandoRef = useRef(false);
+    const cpuTimeoutRef = useRef();
+    const lastPlayerColumn = useRef(null);
 
     useEffect(() => {
         if (!dropping && hoveredColumn !== undefined && hoveredColumn !== column) {
             setColumn(hoveredColumn);
         }
     }, [hoveredColumn, column, dropping]);
+
+    // Sempre que o turno muda para o jogador humano, alinhar a bola ativa com a coluna hovered
+    useEffect(() => {
+        if (turn === 1 && hoveredColumn !== undefined) {
+            setColumn(hoveredColumn);
+        }
+    }, [turn, hoveredColumn]);
 
     // Função para dropar moeda
     const dropMoeda = useCallback((colunaSelecionada) => {
@@ -57,31 +68,50 @@ export default function MoedaVsPC({
         }, 300); // Duração da queda
     }, [winner, dropped, turn, bonusCoords, setDropped, setTurn, setTempoRestante, setTempoCongelado]);
 
+    // Resetar o lock apenas quando o turno muda para o jogador humano
+    useEffect(() => {
+        if (turn === 1) {
+            cpuJogandoRef.current = false;
+        }
+    }, [turn]);
+
     // CPU joga automaticamente
     useEffect(() => {
         if (winner !== 0) return;
-        if (turn === 2) {
+        if (turn === 2 && !cpuJogandoRef.current) {
+            cpuJogandoRef.current = true;
             let colunaValida = Math.floor(Math.random() * 7);
             while (dropped.filter(drop => drop.y === colunaValida).length >= 6) {
                 colunaValida = Math.floor(Math.random() * 7);
             }
-            setTimeout(() => {
+            cpuTimeoutRef.current = setTimeout(() => {
                 setHoveredColumn(colunaValida);
-                setTimeout(() => {
+                cpuTimeoutRef.current = setTimeout(() => {
                     dropMoeda(colunaValida);
-                }, 3000); // 3 segundos depois de mover
-            }, 1000); // 1 segundo para mover
+                    // O lock só é libertado quando o turno mudar (useEffect acima)
+                }, 3000);
+            }, 1000);
         }
+        return () => {
+            if (cpuTimeoutRef.current) clearTimeout(cpuTimeoutRef.current);
+        };
     }, [turn, winner, dropped, dropMoeda, setHoveredColumn]);
 
+    // Libertar o lock sempre que dropped mudar e o turno for 2 (PC pode jogar de novo)
+    useEffect(() => {
+        if (turn === 2) {
+            cpuJogandoRef.current = false;
+        }
+    }, [dropped, turn]);
 
     const handleDoubleClick = useCallback((event) => {
         if (winner !== 0) return;
         if (turn !== 1) return; // Só jogador humano
         if (event.button === 0) {
+            if (setLastPlayerColumn) setLastPlayerColumn(column);
             dropMoeda(column);
         }
-    }, [winner, turn, column, dropMoeda]);
+    }, [winner, turn, column, dropMoeda, setLastPlayerColumn]);
 
     useEffect(() => {
         setRow();

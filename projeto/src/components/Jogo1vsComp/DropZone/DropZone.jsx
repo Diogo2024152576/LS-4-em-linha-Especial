@@ -16,6 +16,7 @@ export default function DropzoneVsPC({
     limparTabelaTrigger,
     bonusCoords = [],
     setTempoCongelado,
+    setLastPlayerColumn,
 }) {
     const [dropped, setDropped] = useState([]);
 
@@ -69,6 +70,7 @@ export default function DropzoneVsPC({
                 setTempoRestante={setTempoRestante}
                 temporizador={temporizador}
                 setTempoCongelado={setTempoCongelado}
+                setLastPlayerColumn={setLastPlayerColumn}
             />
         </div>
     );
