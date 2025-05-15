@@ -21,6 +21,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
     const [limparTrigger, setLimparTrigger] = useState(0);
     const [bonusCoords, setBonusCoords] = useState([]);
     const [mostrarInfo, setMostrarInfo] = useState(false)
+    const [mostrarPopupVencedor, setMostrarPopupVencedor] = useState(false);
 
     const trocarTurno = useCallback(() => {
         setTurno(turno === 1 ? 2 : 1);
@@ -84,6 +85,15 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
         else if (winner === 2) setPontospl2(prev => prev + 1);
     }, [winner]);
 
+    useEffect(() => {
+        if (winner !== 0) {
+            const timeout = setTimeout(() => setMostrarPopupVencedor(true), 1500);
+            return () => clearTimeout(timeout);
+        } else {
+            setMostrarPopupVencedor(false);
+        }
+    }, [winner]);
+
     if (mostrarIntroducao) {
         return <IntroduzirPlayers voltarAoMenu={voltarAoMenu} />;
     }
@@ -129,7 +139,7 @@ export default function JogoPlvsPl({ player1, player2, voltarAoMenu, setPlayer1,
                 </div>
             </div>
             <div className={`popup-Vencedor ${winner !== 0 ? 'show' : ''}`}>
-                {winner !== 0 && (
+                {winner !== 0 && mostrarPopupVencedor && (
                     <PopUpVencedor
                         winner={winner}
                         player1={player1}
