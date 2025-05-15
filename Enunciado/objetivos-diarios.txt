@@ -17,12 +17,7 @@ objetivos 17-04
 alertas em baixo do form - feito (Diogo)
 espaços especiais - feito (Diogo)
 
-objetivos ...
-resolver bug de ao jogar entre o 1s e o 0s ele nao reinicia o tempo pois a bola tem um delay ao cair (para resolver congelar o tempo ao jogar) - Feito (Diogo)
-prender rato ao jogar - feito (Diogo) (nao prendi rato e sim nao muda coluna enquando a bola cai)
-nivel pc a funcionar
-
-
-Erros
-- O pc nao troca a coluna antes de jogar e sim joga e a coluna troca depois de jogar
-- Quando é a vez do pc o jogador nao devia de poder mexer na coluna
+To do
+    - meter as estrelas a aparecer na linha vencedora
+    - delay a aparecer o pop vencedor
+    - corrgir responsividade
