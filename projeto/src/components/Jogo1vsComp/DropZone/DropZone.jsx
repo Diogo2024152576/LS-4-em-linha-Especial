@@ -71,6 +71,7 @@ export default function DropzoneVsPC({
                 temporizador={temporizador}
                 setTempoCongelado={setTempoCongelado}
                 setLastPlayerColumn={setLastPlayerColumn}
+                limparTabelaTrigger={limparTabelaTrigger}
             />
         </div>
     );

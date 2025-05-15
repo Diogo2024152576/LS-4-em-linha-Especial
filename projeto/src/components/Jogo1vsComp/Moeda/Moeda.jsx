@@ -12,6 +12,7 @@ export default function MoedaVsPC({
     setTempoRestante,
     setTempoCongelado,
     setLastPlayerColumn,
+    limparTabelaTrigger,
 }) {
     const [column, setColumn] = useState(0);
     const [row, setRow] = useState();
@@ -123,6 +124,10 @@ export default function MoedaVsPC({
             document.removeEventListener('dblclick', handleDoubleClick);
         };
     }, [column, winner, handleDoubleClick]);
+
+    useEffect(() => {
+        cpuJogandoRef.current = false;
+    }, [limparTabelaTrigger]);
 
     return (
         <>
