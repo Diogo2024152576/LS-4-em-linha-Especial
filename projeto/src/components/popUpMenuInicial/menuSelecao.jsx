@@ -11,7 +11,7 @@ export default function MenuSelecaoJogo({startGamePlvsPl, startGamePlvsCmp}) {
                     <img src={pvspImage} alt="Jogador vs Jogador" />
                 </button>
                 <button onClick={startGamePlvsCmp} className='pvspc'>
-                    <img src={pvspcImage} alt="Jogador vs Computador" />
+                    <img src={pvspcImage} alt="Jogador vs Computador"/>
                 </button>
             </div>
         </div>

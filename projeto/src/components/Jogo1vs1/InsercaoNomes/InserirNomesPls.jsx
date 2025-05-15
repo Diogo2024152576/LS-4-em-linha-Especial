@@ -52,6 +52,7 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         onChange={(e) => setPlayer1(e.target.value)}
         onKeyDown={handleKeyPress}
         autoFocus
+        tabIndex={1}
       />
       <input
         type="text"
@@ -59,6 +60,7 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         placeholder="Nome do Jogador 2"
         onChange={(e) => setPlayer2(e.target.value)}
         onKeyDown={handleKeyPress}
+        tabIndex={2}
       />
       {erro && (
         <div className="mensagem-erro">
@@ -66,8 +68,8 @@ export default function IntroduzirPlayers({ voltarAoMenu }) {
         </div>
       )}
       <div className='row'>
-        <button onClick={handleStart}>Começar Jogo</button>
-        <button onClick={voltarAoMenu}>
+        <button onClick={handleStart} tabIndex={3}>Começar Jogo</button>
+        <button onClick={voltarAoMenu} tabIndex={4}>
           <img src={sairImage} alt="Voltar ao menu" />
         </button>
       </div>

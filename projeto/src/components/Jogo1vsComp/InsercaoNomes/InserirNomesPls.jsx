@@ -44,6 +44,7 @@ export default function IntroduzirPlayerVsPc({ voltarAoMenu }) {
         onChange={(e) => setPlayer(e.target.value)}
         onKeyDown={handleKeyPress}
         autoFocus
+        tabIndex={1}
       />
       {erro && (
         <div className="mensagem-erro">
@@ -51,8 +52,8 @@ export default function IntroduzirPlayerVsPc({ voltarAoMenu }) {
         </div>
       )}
       <div className='row'>
-        <button onClick={handleStart}>Começar Jogo</button>
-        <button onClick={voltarAoMenu}>
+        <button onClick={handleStart} tabIndex={2}>Começar Jogo</button>
+        <button onClick={voltarAoMenu} tabIndex={3}>
           <img src={sairImage} alt="Voltar ao menu" />
         </button>
       </div>
