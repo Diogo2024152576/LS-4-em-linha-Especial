@@ -18,13 +18,24 @@ export default function TabelaVsPC({
     const [tabela, setTabela] = useState(
         new Array(linhas).fill().map(() => new Array(colunas).fill(''))
     );
+    const [posicoesVencedoras, setPosicoesVencedoras] = useState([]);
     const lastPlayerColumn = useRef(0);
 
     // Limpa tabela quando trigger mudar
     useEffect(() => {
         const novaTabela = new Array(linhas).fill().map(() => new Array(colunas).fill(''));
         setTabela(novaTabela);
+        setPosicoesVencedoras([]);
     }, [limparTabelaTrigger]);
+
+    // Atualiza posicoesVencedoras sempre que winner mudar
+    useEffect(() => {
+        if (winner === 1 || winner === 2) {
+            // A lógica de atualização de posicoesVencedoras está no DropZone
+        } else {
+            setPosicoesVencedoras([]);
+        }
+    }, [winner]);
 
     // Função para guardar a última coluna jogada pelo jogador humano
     const setLastPlayerColumn = (col) => {
@@ -55,6 +66,8 @@ export default function TabelaVsPC({
                     bonusCoords={bonusCoords}
                     setTempoCongelado={setTempoCongelado}
                     setLastPlayerColumn={setLastPlayerColumn}
+                    posicoesVencedoras={posicoesVencedoras}
+                    setPosicoesVencedoras={setPosicoesVencedoras}
                 />
             </div>
             <div className='borda-tabela'>
@@ -63,7 +76,7 @@ export default function TabelaVsPC({
                         linha.map((celula, j) => (
                             <div
                                 key={i + '-' + j}
-                                className={`${celula} ${hoveredColumn === j ? 'coluna-hover' : ''}`}
+                                className={`${celula} ${(winner === 0 && hoveredColumn === j) ? 'coluna-hover' : ''}`}
                                 onMouseEnter={() => turno === 1 && setHoveredColumn(j)}
                             />
                         ))
