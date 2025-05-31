@@ -54,4 +54,5 @@
 .bonus-cell {
     border: 12px dashed green;
     z-index: 100;
+    pointer-events: none;
 }
