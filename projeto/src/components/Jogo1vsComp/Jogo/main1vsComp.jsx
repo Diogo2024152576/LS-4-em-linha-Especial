@@ -9,7 +9,7 @@ import IntroduzirPlayers from '../InsercaoNomes/InserirNomesPls';
 import PopUpInfo from '../../Jogo1vs1/PopUpInfo/info';
 import info_icon from '../../../assets/images/info.png';
 
-export default function JogoPlvsPc({ player1, setPlayer1, voltarAoMenu }) {
+export default function JogoPlvsPc({ player1, setPlayer, voltarAoMenu }) {
   console.log("teste jogo" + player1);
   const [winner, setWinner] = useState(0);
   const [turno, setTurno] = useState(Math.floor(Math.random() * 2) + 1);
@@ -36,7 +36,7 @@ export default function JogoPlvsPc({ player1, setPlayer1, voltarAoMenu }) {
 
   const reporJogo = () => {
     setWinner(0);
-    setPlayer1('');
+    setPlayer('');
     setMostrarIntroducao(true);
   };
 
