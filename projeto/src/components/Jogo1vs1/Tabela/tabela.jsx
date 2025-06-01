@@ -30,11 +30,7 @@ export default function Tabela({
 
     // Atualiza posicoesVencedoras sempre que winner mudar
     useEffect(() => {
-        if (winner === 1 || winner === 2) {
-            // Precisa obter as posições vencedoras a partir do dropped
-            // Como dropped está em DropZone, não temos acesso aqui diretamente
-            // Então, a lógica de atualização de posicoesVencedoras deve ser feita em DropZone e passada para cá
-        } else {
+        if (winner !== 1 && winner !== 2) {
             setPosicoesVencedoras([]);
         }
     }, [winner]);
