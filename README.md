@@ -222,11 +222,10 @@ npm run build
 | Nº Aluno | Nome |
 |---|---|
 | 2024143044 | Rafael Marques |
-| *(a preencher)* | *(Colega 2)* |
-| *(a preencher)* | *(Colega 3)* |
+| 2024152576 | Diogo Pinto |
 
 **Unidade Curricular:** Linguagens Script 2024/2025  
-**Docente:** *(a preencher)*  
+**Docente:** Simão Paredes  
 **Data de Entrega:** 2 de junho de 2025  
 
 ---
