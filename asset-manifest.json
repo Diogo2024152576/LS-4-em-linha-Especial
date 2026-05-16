@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/LS-4-em-linha-Especial/static/css/main.887feef8.css",
+    "main.js": "/LS-4-em-linha-Especial/static/js/main.4f1c34f6.js",
+    "static/media/pvsp.png": "/LS-4-em-linha-Especial/static/media/pvsp.dba89cd55e9714877b4c.png",
+    "static/media/pvspc.png": "/LS-4-em-linha-Especial/static/media/pvspc.55bbfd951497ab0367eb.png",
+    "index.html": "/LS-4-em-linha-Especial/index.html",
+    "static/media/quadrado.svg": "/LS-4-em-linha-Especial/static/media/quadrado.986b005eb3cfcbf7a94c.svg",
+    "main.887feef8.css.map": "/LS-4-em-linha-Especial/static/css/main.887feef8.css.map",
+    "main.4f1c34f6.js.map": "/LS-4-em-linha-Especial/static/js/main.4f1c34f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.887feef8.css",
+    "static/js/main.4f1c34f6.js"
+  ]
+}
