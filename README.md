@@ -14,6 +14,7 @@
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Como Executar](#como-executar)
+- [Demo Online](#demo-online)
 - [Regras do Jogo](#regras-do-jogo)
 - [Grupo](#grupo)
 
@@ -181,7 +182,7 @@ LS-4-em-linha-Especial/
 
 ```bash
 # 1. Clonar o repositório
-git clone https://github.com/Rafael2024143044/LS-4-em-linha-Especial.git
+git clone https://github.com/Diogo2024152576/LS-4-em-linha-Especial.git
 cd LS-4-em-linha-Especial/projeto
 
 # 2. Instalar dependências
@@ -200,6 +201,21 @@ npm run build
 ```
 
 > ⚠️ **Antes de submeter o ZIP:** Remover obrigatoriamente a pasta `node_modules` e o ficheiro `package-lock.json`.
+
+---
+
+## 🌐 Demo Online
+
+O projeto está publicado no **GitHub Pages** e pode ser experimentado diretamente no browser:
+
+🔗 **https://diogo2024152576.github.io/LS-4-em-linha-Especial/**
+
+O deploy é feito a partir da pasta `projeto/` com o pacote `gh-pages`:
+
+```bash
+cd projeto
+npm run deploy
+```
 
 ---
 
